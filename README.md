@@ -11,30 +11,31 @@ F1 racing
 ### Racer
 | Attribute | Description |
 |----------|-------------|
-| Team |  |
-| Number |  |
-| Vehicle |  |
-| Wins |  |
-| Ranking |  |
-| Odds |  |
+| Name | Max Velocity |
+| Team | Thunderbolt Racing |
+| Number | 22 |
+| Vehicle | Vortex X1 |
+| Wins | 7 |
+| Ranking | 3rd Overall |
+| Odds | +250 |
 
 ### Car
 | Attribute | Description |
 |----------|-------------|
-| Manufacturer |  |
-| Engine |  |
-| Top Speed |  |
-| Color |  |
-| Cost |  |
+| Manufacturer | Vortex Motors |
+| Engine | V12 Twin‑Turbo Hybrid |
+| Top Speed | 362 km/h |
+| Color | Matte Red & Black |
+| Cost | $3.2 Million |
 
 ### Race
 | Attribute | Description |
 |----------|-------------|
-| Track |  |
-| Racers |  |
-| Track Length |  |
-| Number of Incidents |  |
-| Top Prize $ |  |
+| Track | Silverstone Circuit |
+| Racers | 20 |
+| Track Length | 5.89 km |
+| Number of Incidents | 4 |
+| Top Prize $ | $500,000 |
 
 
 
