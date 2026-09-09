@@ -19,7 +19,6 @@ F1 racing
 | Odds | +250 |
 | Vehicle | Vortex X1 |
 | Manufacturer | Vortex Motors |
-| Engine | V12 Twin‑Turbo Hybrid |
 | Color | Matte Red & Black |
 
 ### Race
