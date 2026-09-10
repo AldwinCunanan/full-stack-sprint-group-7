@@ -1,0 +1,80 @@
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000000; /* Page background (black) */
+    color: #000000;            /* Default text color (black) */
+    margin: 0.3em;
+    padding: 0.3em;
+    line-height: 1.6;
+}
+
+main {
+    background-color: rgb(161, 161, 161); /* Main content background (grey) */
+    max-width: 75%;
+    margin: auto;
+}
+
+header, main section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 1rem;
+}
+
+h1, h2, h3 {
+    color: #020202; /* Default header color (black) */
+    margin-bottom: 0.5em;
+}
+
+h1 {
+    color: #ff0000; /* Formula One title (red) */
+}
+
+h2 {
+    font-size: 1em; /* Smaller subheader size */
+}
+
+a {
+    color: darkblue;                 /* Link color */
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+    transition: all 0.3s ease;
+}
+
+a:hover {
+    border-bottom: 1px solid #007BFF; /* Link hover underline (blue) */
+}
+
+/* Container styles */
+.container {
+    max-width: 800px;
+    margin: 20px auto;
+    padding: 15px;
+    background-color: #ffffff; /* Container background (white) */
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+}
+
+/* Form input styles */
+input, textarea, select {
+    width: 100%;
+    padding: 10px;
+    margin: 10px 0;
+    border: 1px solid #ddd; /* Input border */
+    border-radius: 5px;
+    font-size: 1rem;
+}
+
+input:focus, textarea:focus, select:focus {
+    border-color: #007BFF; /* Input focus border (blue) */
+    outline: none;
+    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3); /* Input glow on focus */
+}
+
+.logo {
+    width: 400px; /* Logo width */
+    height: auto; /* Maintain aspect ratio */
+}
+
+.racer_card {
+  margin-bottom: 1rem; 
+}

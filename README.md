@@ -18,7 +18,6 @@ F1 racing
 | Ranking | 3rd Overall |
 | Odds | +250 |
 | Vehicle | Vortex X1 |
-| Manufacturer | Vortex Motors |
 | Color | Matte Red & Black |
 
 ### Race
