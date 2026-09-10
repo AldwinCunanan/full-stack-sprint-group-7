@@ -75,6 +75,63 @@ input:focus, textarea:focus, select:focus {
     height: auto; /* Maintain aspect ratio */
 }
 
-.racer_card {
-  margin-bottom: 1rem; 
+/* Bigger title for "Racer Statistics" */
+.statistics_list h2 {
+    font-size: 2rem;
+    margin-bottom: 1rem;
+    text-align: center;
 }
+
+/* Remove bullets and indentation */
+.statistics_list ul {
+    list-style: none;
+    padding-left: 0;
+    margin: 0;
+}
+
+/* FOUR‑wide grid */
+.racer_list {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr); /* 4 columns */
+    gap: 1.5rem; /* space between cards */
+    padding: 1rem 0;
+}
+
+/* Racer card styling */
+.racer_card {
+    background: #ffffff;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    padding: 1rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+/* Racer name */
+.racer_card strong {
+    font-size: 1.2rem;
+    display: block;
+    margin-bottom: 0.5rem;
+}
+
+/* Bold team name */
+.racer_card .team {
+    font-weight: bold;
+    margin-bottom: 0.5rem;
+}
+
+/* Bold category labels */
+.racer_card .label {
+    font-weight: bold;
+}
+
+/* Spacing between stat lines */
+.racer_card div {
+    margin: 0.2rem 0;
+}
+
+/* Center the whole grid */
+.statistics_list {
+    max-width: 1400px;
+    margin: auto;
+}
+

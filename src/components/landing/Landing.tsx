@@ -151,12 +151,12 @@ function StatisticsList({ statistics }: { statistics: Statistics[] }) {
                         {stat.stats.map((racer) => (
                             <div key={racer.name} className="racer_card">
                                 <strong>{racer.name}</strong>
-                                <div>{racer.team}</div>
-                                <div>Wins: {racer.wins}</div>
-                                <div>Ranking: {racer.ranking}</div>
-                                <div>Odds: {racer.odds}</div>
-                                <div>Vehicle: {racer.vehicle}</div>
-                                <div>Color: {racer.color}</div>
+                                <div className="team">{racer.team}</div>
+                                <div><span className="label">Wins:</span> {racer.wins}</div>
+                                <div><span className="label">Ranking:</span> {racer.ranking}</div>
+                                <div><span className="label">Odds:</span> {racer.odds}</div>
+                                <div><span className="label">Vehicle:</span> {racer.vehicle}</div>
+                                <div><span className="label">Color:</span> {racer.color}</div>
                             </div>
                         ))}
                     </div>
