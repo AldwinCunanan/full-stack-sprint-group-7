@@ -1,18 +1,23 @@
+/* GLOBAL PAGE STYLING */
 body {
     font-family: 'Arial', sans-serif;
-    background-color: #000000; /* Page background (black) */
-    color: #000000;            /* Default text color (black) */
+    background-color: #2C3E50; /* Blue-grey outer background */
+    color: #ffffff;            /* All text white */
     margin: 0.3em;
     padding: 0.3em;
     line-height: 1.6;
 }
 
+/* MAIN CONTENT AREA */
 main {
-    background-color: rgb(161, 161, 161); /* Main content background (grey) */
+    background-color: #000000; /* Inner main box (black) */
     max-width: 75%;
     margin: auto;
+    padding: 1rem;
+    border-radius: 10px;
 }
 
+/* HEADER + SECTION ALIGNMENT */
 header, main section {
     display: flex;
     flex-direction: column;
@@ -20,118 +25,118 @@ header, main section {
     margin-bottom: 1rem;
 }
 
+/* HEADERS */
 h1, h2, h3 {
-    color: #020202; /* Default header color (black) */
+    color: #ffffff; /* All headers white */
     margin-bottom: 0.5em;
 }
 
 h1 {
-    color: #ff0000; /* Formula One title (red) */
+    color: #ff0000; /* Formula One title stays red */
 }
 
 h2 {
-    font-size: 1em; /* Smaller subheader size */
+    font-size: 2rem; /* Bigger Racer Statistics title */
+    text-align: center;
 }
 
+/* LINKS */
 a {
-    color: darkblue;                 /* Link color */
+    color: #87CEFA; /* Light blue link */
     text-decoration: none;
     border-bottom: 1px solid transparent;
     transition: all 0.3s ease;
 }
 
 a:hover {
-    border-bottom: 1px solid #007BFF; /* Link hover underline (blue) */
+    border-bottom: 1px solid #ffffff; /* White underline on hover */
 }
 
-/* Container styles */
+/* FORM CONTAINER */
 .container {
     max-width: 800px;
     margin: 20px auto;
     padding: 15px;
-    background-color: #ffffff; /* Container background (white) */
+    background-color: #2C3E50; /* Blue-grey container */
     border-radius: 8px;
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Light shadow */
+    box-shadow: 0 2px 4px rgba(255, 255, 255, 0.1);
+    color: #ffffff;
 }
 
-/* Form input styles */
+/* INPUTS */
 input, textarea, select {
     width: 100%;
     padding: 10px;
     margin: 10px 0;
-    border: 1px solid #ddd; /* Input border */
+    border: 1px solid #555;
     border-radius: 5px;
     font-size: 1rem;
+    background-color: #2C3E50; /* Blue-grey input background */
+    color: #ffffff;
 }
 
 input:focus, textarea:focus, select:focus {
-    border-color: #007BFF; /* Input focus border (blue) */
+    border-color: #ffffff;
     outline: none;
-    box-shadow: 0 0 3px rgba(0, 123, 255, 0.3); /* Input glow on focus */
+    box-shadow: 0 0 3px rgba(255, 255, 255, 0.5);
 }
 
+/* LOGO */
 .logo {
-    width: 400px; /* Logo width */
-    height: auto; /* Maintain aspect ratio */
+    width: 400px;
+    height: auto;
 }
 
-/* Bigger title for "Racer Statistics" */
-.statistics_list h2 {
-    font-size: 2rem;
-    margin-bottom: 1rem;
-    text-align: center;
-}
-
-/* Remove bullets and indentation */
+/* REMOVE BULLETS */
 .statistics_list ul {
     list-style: none;
     padding-left: 0;
     margin: 0;
 }
 
-/* FOUR‑wide grid */
+/* FOUR-WIDE GRID */
 .racer_list {
     display: grid;
-    grid-template-columns: repeat(4, 1fr); /* 4 columns */
-    gap: 1.5rem; /* space between cards */
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
     padding: 1rem 0;
 }
 
-/* Racer card styling */
+/* RACER CARD */
 .racer_card {
-    background: #ffffff;
-    border: 1px solid #ccc;
+    background: #2C3E50; /* Blue-grey card background */
+    border: 1px solid #ffffff;
     border-radius: 10px;
     padding: 1rem;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    box-shadow: 0 2px 4px rgba(255,255,255,0.1);
+    color: #ffffff;
 }
 
-/* Racer name */
+/* RACER NAME */
 .racer_card strong {
     font-size: 1.2rem;
     display: block;
     margin-bottom: 0.5rem;
 }
 
-/* Bold team name */
+/* TEAM NAME BOLD */
 .racer_card .team {
     font-weight: bold;
     margin-bottom: 0.5rem;
 }
 
-/* Bold category labels */
+/* CATEGORY LABELS BOLD */
 .racer_card .label {
     font-weight: bold;
 }
 
-/* Spacing between stat lines */
+/* SPACING BETWEEN LINES */
 .racer_card div {
     margin: 0.2rem 0;
 }
 
-/* Center the whole grid */
+/* CENTER GRID */
 .statistics_list {
     max-width: 1400px;
     margin: auto;
 }
-
