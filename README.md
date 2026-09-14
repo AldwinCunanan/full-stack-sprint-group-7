@@ -34,10 +34,11 @@ F1 racing
 |----------|-------------|
 | username | SpeedRacer67 |
 | Date of Birth | 2000-05-29 |
-|Favorite Racer | Max Velocity |
-|Favorite Track | Silverstone Circuit |
+| Favorite Racer | Max Velocity |
+| Favorite Track | Silverstone Circuit |
 | Available Credits | $1,000 |
 | Total Profit/Loss | +250 | 
 | Active Bets | 2 |
+| Bets Won | 6 |
 | Total bets Placed | 10 | 
 | Win Rate | 60% |
