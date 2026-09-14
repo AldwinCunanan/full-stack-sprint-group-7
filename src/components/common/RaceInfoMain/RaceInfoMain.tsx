@@ -31,7 +31,12 @@ function RaceInfoMain(){
                             <p className="track-length"></p>
                         </div>
 
-                        
+                        {race.racers.map((racer, index) => (
+                            <div>
+                                <span>Racer {index + 1}</span>
+                                <p>{racer}</p>
+                            </div>
+                        ))}
 
                     </div>
                 </div>
