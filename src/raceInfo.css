@@ -1,0 +1,63 @@
+
+.race-info-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.race-info-header h1 {
+    margin-bottom: 20px;
+}
+
+.race-track-image {
+    width: 650px;
+    height: auto;
+    border: 10px solid black;
+    border-radius: 20px;
+}
+
+.race-info-header h1 {
+    margin: 20px auto;
+    font-size: 50px;
+}
+
+.race-info-main {
+    width: 700px;
+    margin: 20px auto;
+    padding: 30px;
+    background-color: black;
+    border-radius: 10px;
+    box-sizing: border-box;
+}
+
+.race-info-row {
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 20px;
+    background-color: #ffffff;
+    border-bottom: 1px solid #333;
+    box-sizing: border-box;
+    box-shadow: 0 0 10px #306794;
+}
+
+.race-info-row span {
+    font-size: 18px;
+    font-weight: bold;
+    color: black;
+}
+
+.race-info-row p {
+    font-size: 18px;
+    color: black;
+}
+
+.race-info-row span,
+.race-info-row p {
+    text-shadow: 0 0 2px #306794;
+    width: 50%;
+    text-align: center;
+}
+
