@@ -8,7 +8,8 @@ const racers = [
         season_position: "1st",
         season_points: 292,
         grand_prix_races: 14,
-        grand_prix_wins: 8
+        grand_prix_wins: 8,
+        image: "/kimi_antonelli.atif"
     },
     {
         name: "George Russell",
@@ -131,6 +132,7 @@ type Racer = {
     season_points: number;
     grand_prix_races: number;
     grand_prix_wins: number;
+    image?: string; 
 };
 
 export function Landing() {
@@ -155,6 +157,7 @@ function RacerList({ racers }: { racers: Racer[] }) {
                     <div className="racer_list">
                         {racers.map((racer) => (
                             <div key={racer.name} className="racer_card">
+                                <img src={racer.image} alt={racer.name} className="racer_image" />
                                 <strong>{racer.name}</strong>
                                 <div className="team">{racer.team}</div>
                                 <div><span className="label">Country:</span> {racer.country}</div>
@@ -168,5 +171,5 @@ function RacerList({ racers }: { racers: Racer[] }) {
 
                 </section>
             )}
-            
+
 export default Landing;

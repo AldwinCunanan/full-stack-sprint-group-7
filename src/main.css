@@ -140,3 +140,11 @@ input:focus, textarea:focus, select:focus {
     max-width: 1400px;
     margin: auto;
 }
+
+/* RACER IMAGE */
+.racer_image {
+    width: 100%;
+    height: auto;
+    border-radius: 8px;
+    margin-bottom: 0.5rem;
+}
