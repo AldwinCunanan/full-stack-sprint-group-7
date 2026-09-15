@@ -79,6 +79,46 @@ const racers = [
         season_points: 71,
         grand_prix_races: 11,
         grand_prix_wins: 0
+    },
+    {
+        name: "Liam Lawson",
+        team: "Racing Bulls",
+        country: "New Zealand",
+        number: 30,
+        season_position: "9th",
+        season_points: 59,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
+    },
+    {
+        name: "Pierre Gasly",
+        team: "Alpine",
+        country: "France",
+        number: 10,
+        season_position: "10th",
+        season_points: 41,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
+    },
+    {
+        name: "Arvin Lindblad",
+        team: "Racing Bulls",
+        country: "United Kingdom",
+        number: 41,
+        season_position: "11th",
+        season_points: 31,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
+    },
+    {
+        name: "Franco Colapinto",
+        team: "Alpine",
+        country: "Argentina",
+        number: 43,
+        season_position: "12th",
+        season_points: 27,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
     }
 ];
 
