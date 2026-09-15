@@ -3,6 +3,8 @@ import Footer from "./components/common/footer/Footer";
 import Landing  from "./components/landing/Landing";
 // Aldwin's imports
 import UserProfile from "./components/user-profile/UserProfile"; 
+import RaceInfoHeader from "./components/common/RaceInfoHeader/RaceInfoHeader";
+import RaceInfoMain from "./components/common/RaceInfoMain/RaceInfoMain";
 
 // functions that return JSX are React Components
 // These work a lot like HTML; they have parents and children
@@ -16,6 +18,8 @@ function App() {
       <Landing />
       <UserProfile/>
       <Footer />
+      <RaceInfoHeader/>
+      <RaceInfoMain/>
     </>
   );
 };

@@ -1,128 +1,149 @@
 
 const racers = [
     {
-        name: "Luna Vortex",
-        team: "Nebula Racing",
+        name: "Kimi Antonelli",
+        team: "Mercedes",
+        country: "Italy",
+        number: 12,
+        season_position: "1st",
+        season_points: 292,
+        grand_prix_races: 14,
+        grand_prix_wins: 8,
+        image: "/kimi_antonelli.atif"
+    },
+    {
+        name: "George Russell",
+        team: "Mercedes",
+        country: "United Kingdom",
+        number: 63,
+        season_position: "2nd",
+        season_points: 211,
+        grand_prix_races: 14,
+        grand_prix_wins: 2,
+        image: "/george_russell.avif"
+    },
+    {
+        name: "Lewis Hamilton",
+        team: "Ferrari",
+        country: "United Kingdom",
         number: 44,
-        wins: 10,
-        ranking: "1st Overall",
-        odds: "+150",
-        vehicle: "Nebula NX44",
-        color: "Purple & Black"
+        season_position: "3rd",
+        season_points: 191,
+        grand_prix_races: 14,
+        grand_prix_wins: 1,
+        image: "/lewis_hamilton.avif"
     },
     {
-        name: "Orion Blaze",
-        team: "Starlance Racing",
-        number: 31,
-        wins: 4,
-        ranking: "2nd Overall",
-        odds: "+200",
-        vehicle: "Starlance SB31",
-        color: "Blue & Silver"
+        name: "Lando Norris",
+        team: "McLaren",
+        country: "United Kingdom",
+        number: 1,
+        season_position: "4th",
+        season_points: 186,
+        grand_prix_races: 14,
+        grand_prix_wins: 2,
+        image: "/lando_norris.avif"
     },
     {
-        name: "Max Velocity",
-        team: "Thunderbolt Racing",
-        number: 22,
-        wins: 7,
-        ranking: "3rd Overall",
-        odds: "+250",
-        vehicle: "Vortex X1",
-        color: "Matte Red & Black"
+        name: "Charles Leclerc",
+        team: "Ferrari",
+        country: "Monaco",
+        number: 16,
+        season_position: "5th",
+        season_points: 167,
+        grand_prix_races: 14,
+        grand_prix_wins: 1,
+        image: "/charles_leclerc.avif"
     },
     {
-        name: "Vega Storm",
-        team: "Cyclone Dynamics",
-        number: 18,
-        wins: 6,
-        ranking: "4th Overall",
-        odds: "+300",
-        vehicle: "Cyclone CX18",
-        color: "Teal & Black"
+        name: "Max Verstappen",
+        team: "Red Bull Racing",
+        country: "Netherlands",
+        number: 3,
+        season_position: "6th",
+        season_points: 145,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/max_verstappen.avif"
     },
     {
-        name: "Nova Drift",
-        team: "Solaris Racing",
-        number: 7,
-        wins: 5,
-        ranking: "5th Overall",
-        odds: "+400",
-        vehicle: "SolarFlare S7",
-        color: "Yellow & Black"
+        name: "Oscar Piastri",
+        team: "McLaren",
+        country: "Australia",
+        number: 81,
+        season_position: "7th",
+        season_points: 120,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/oscar_piastri.avif"
     },
     {
-        name: "Crimson Fang",
-        team: "Redline Syndicate",
-        number: 11,
-        wins: 2,
-        ranking: "6th Overall",
-        odds: "+500",
-        vehicle: "Redline RL11",
-        color: "Blood Red"
+        name: "Isack Hadjar",
+        team: "Red Bull Racing",
+        country: "France",
+        number: 6,
+        season_position: "8th",
+        season_points: 71,
+        grand_prix_races: 11,
+        grand_prix_wins: 0,
+        image: "/isack_hadjar.avif"
     },
     {
-        name: "Titan Flux",
-        team: "Ironclad Motors",
-        number: 5,
-        wins: 0,
-        ranking: "7th Overall",
-        odds: "+550",
-        vehicle: "Ironclad IC5",
-        color: "Gunmetal Grey"
+        name: "Liam Lawson",
+        team: "Racing Bulls",
+        country: "New Zealand",
+        number: 30,
+        season_position: "9th",
+        season_points: 59,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/liam_lawson.avif"
     },
     {
-        name: "Apex Strider",
-        team: "Crimson Apex",
-        number: 14,
-        wins: 3,
-        ranking: "8th Overall",
-        odds: "+600",
-        vehicle: "Apex R14",
-        color: "Crimson & Silver"
+        name: "Pierre Gasly",
+        team: "Alpine",
+        country: "France",
+        number: 10,
+        season_position: "10th",
+        season_points: 41,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/pierre_gasly.avif"
     },
     {
-        name: "Echo Mirage",
-        team: "Phantom Circuit",
-        number: 27,
-        wins: 1,
-        ranking: "9th Overall",
-        odds: "+700",
-        vehicle: "Phantom PH27",
-        color: "Ghost White"
+        name: "Arvin Lindblad",
+        team: "Racing Bulls",
+        country: "United Kingdom",
+        number: 41,
+        season_position: "11th",
+        season_points: 31,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/arvin_lindblad.avif"
     },
     {
-        name: "Rex Tempest",
-        team: "Tempest Motors",
-        number: 9,
-        wins: 1,
-        ranking: "10th Overall",
-        odds: "+1200",
-        vehicle: "Tempest T9",
-        color: "Storm Grey"
+        name: "Franco Colapinto",
+        team: "Alpine",
+        country: "Argentina",
+        number: 43,
+        season_position: "12th",
+        season_points: 27,
+        grand_prix_races: 14,
+        grand_prix_wins: 0,
+        image: "/franco_colapinto.avif"
     }
 ];
 
 type Racer = {
     name: string;
     team: string;
+    country: string;
     number: number;
-    wins: number;
-    ranking: string;
-    odds: string;
-    vehicle: string;
-    color: string;
-};
-
-const statistics: Statistics[] = [
-    {
-        name: "Racer Statistics",
-        stats: racers
-    }
-];
-
-type Statistics = {
-    name: string;
-    stats: Racer[];
+    season_position: string;
+    season_points: number;
+    grand_prix_races: number;
+    grand_prix_wins: number;
+    image?: string; 
 };
 
 export function Landing() {
@@ -130,41 +151,36 @@ export function Landing() {
         <>
             <header>
                 <img src="/logo.svg" alt="F1 Logo" className="logo" />
-                <h1>Formula One</h1>
+                <h1>Formula One 2026</h1>
                 <span></span>
             </header>
             <main>
-                <StatisticsList statistics={statistics} />
+                <RacerList racers={racers} />
             </main>
         </>
     );
 }
 
-function StatisticsList({ statistics }: { statistics: Statistics[] }) {
+function RacerList({ racers }: { racers: Racer[] }) {
     return (
         <section className="statistics_list">
-            {statistics.map((stat) => (
-                <section key={stat.name}>
-                    <h2>{stat.name}</h2>
-
+            <h2>Racer Statistics</h2>
                     <div className="racer_list">
-                        {stat.stats.map((racer) => (
+                        {racers.map((racer) => (
                             <div key={racer.name} className="racer_card">
+                                <img src={racer.image} alt={racer.name} className="racer_image" />
                                 <strong>{racer.name}</strong>
                                 <div className="team">{racer.team}</div>
-                                <div><span className="label">Wins:</span> {racer.wins}</div>
-                                <div><span className="label">Ranking:</span> {racer.ranking}</div>
-                                <div><span className="label">Odds:</span> {racer.odds}</div>
-                                <div><span className="label">Vehicle:</span> {racer.vehicle}</div>
-                                <div><span className="label">Color:</span> {racer.color}</div>
+                                <div><span className="label">Country:</span> {racer.country}</div>
+                                <div><span className="label">Season Position:</span> {racer.season_position}</div>
+                                <div><span className="label">Season Points:</span> {racer.season_points}</div>
+                                <div><span className="label">Grand Prix Races:</span> {racer.grand_prix_races}</div>
+                                <div><span className="label">Grand Prix Wins:</span> {racer.grand_prix_wins}</div>
                             </div>
                         ))}
                     </div>
 
                 </section>
-            ))}
-        </section>
-    );
-}
+            )}
 
 export default Landing;
