@@ -1,7 +1,7 @@
 
 const racers = [
     {
-        name: "KimiAntonelli",
+        name: "Kimi Antonelli",
         team: "Mercedes",
         country: "Italy",
         number: 12,
@@ -11,13 +11,73 @@ const racers = [
         grand_prix_wins: 8
     },
     {
-        name: "X",
-        team: "X",
-        country: "X",
+        name: "George Russell",
+        team: "Mercedes",
+        country: "United Kingdom",
+        number: 63,
+        season_position: "2nd",
+        season_points: 211,
+        grand_prix_races: 14,
+        grand_prix_wins: 2
+    },
+    {
+        name: "Lewis Hamilton",
+        team: "Ferrari",
+        country: "United Kingdom",
         number: 44,
-        season_position: "10",
-        season_points: 0,
-        grand_prix_races: 0,
+        season_position: "3rd",
+        season_points: 191,
+        grand_prix_races: 14,
+        grand_prix_wins: 1
+    },
+    {
+        name: "Lando Norris",
+        team: "McLaren",
+        country: "United Kingdom",
+        number: 1,
+        season_position: "4th",
+        season_points: 186,
+        grand_prix_races: 14,
+        grand_prix_wins: 2
+    },
+    {
+        name: "Charles Leclerc",
+        team: "Ferrari",
+        country: "Monaco",
+        number: 16,
+        season_position: "5th",
+        season_points: 167,
+        grand_prix_races: 14,
+        grand_prix_wins: 1
+    },
+    {
+        name: "Max Verstappen",
+        team: "Red Bull Racing",
+        country: "Netherlands",
+        number: 3,
+        season_position: "6th",
+        season_points: 145,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
+    },
+    {
+        name: "Oscar Piastri",
+        team: "McLaren",
+        country: "Australia",
+        number: 81,
+        season_position: "7th",
+        season_points: 120,
+        grand_prix_races: 14,
+        grand_prix_wins: 0
+    },
+    {
+        name: "Isaac Hadjar",
+        team: "Red Bull Racing",
+        country: "France",
+        number: 6,
+        season_position: "8th",
+        season_points: 71,
+        grand_prix_races: 11,
         grand_prix_wins: 0
     }
 ];
@@ -50,7 +110,7 @@ export function Landing() {
         <>
             <header>
                 <img src="/logo.svg" alt="F1 Logo" className="logo" />
-                <h1>Formula One</h1>
+                <h1>Formula One 2026</h1>
                 <span></span>
             </header>
             <main>
