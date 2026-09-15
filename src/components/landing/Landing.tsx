@@ -1,46 +1,36 @@
 
 const racers = [
     {
-        name: "X",
-        team: "X",
-        number: 44,
-        wins: 10,
-        ranking: "X",
-        odds: "X",
-        vehicle: "X",
-        color: "X"
+        name: "KimiAntonelli",
+        team: "Mercedes",
+        country: "Italy",
+        number: 12,
+        season_position: "1st",
+        season_points: 292,
+        grand_prix_races: 14,
+        grand_prix_wins: 8
     },
     {
         name: "X",
         team: "X",
+        country: "X",
         number: 44,
-        wins: 10,
-        ranking: "X",
-        odds: "X",
-        vehicle: "X",
-        color: "X"
-    },
-    {
-        name: "X",
-        team: "X",
-        number: 44,
-        wins: 10,
-        ranking: "X",
-        odds: "X",
-        vehicle: "X",
-        color: "X"
+        season_position: "10",
+        season_points: 0,
+        grand_prix_races: 0,
+        grand_prix_wins: 0
     }
 ];
 
 type Racer = {
     name: string;
     team: string;
+    country: string;
     number: number;
-    wins: number;
-    ranking: string;
-    odds: string;
-    vehicle: string;
-    color: string;
+    season_position: string;
+    season_points: number;
+    grand_prix_races: number;
+    grand_prix_wins: number;
 };
 
 const statistics: Statistics[] = [
@@ -82,11 +72,11 @@ function StatisticsList({ statistics }: { statistics: Statistics[] }) {
                             <div key={racer.name} className="racer_card">
                                 <strong>{racer.name}</strong>
                                 <div className="team">{racer.team}</div>
-                                <div><span className="label">Wins:</span> {racer.wins}</div>
-                                <div><span className="label">Ranking:</span> {racer.ranking}</div>
-                                <div><span className="label">Odds:</span> {racer.odds}</div>
-                                <div><span className="label">Vehicle:</span> {racer.vehicle}</div>
-                                <div><span className="label">Color:</span> {racer.color}</div>
+                                <div><span className="label">Country:</span> {racer.country}</div>
+                                <div><span className="label">Season Position:</span> {racer.season_position}</div>
+                                <div><span className="label">Season Points:</span> {racer.season_points}</div>
+                                <div><span className="label">Grand Prix Races:</span> {racer.grand_prix_races}</div>
+                                <div><span className="label">Grand Prix Wins:</span> {racer.grand_prix_wins}</div>
                             </div>
                         ))}
                     </div>
