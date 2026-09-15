@@ -1,6 +1,8 @@
 import Nav from "./components/common/nav/Nav";
 import Footer from "./components/common/footer/Footer";
 import Landing  from "./components/landing/Landing";
+// Aldwin's imports
+import UserProfile from "./components/user-profile/UserProfile"; 
 
 // functions that return JSX are React Components
 // These work a lot like HTML; they have parents and children
@@ -12,6 +14,7 @@ function App() {
     <>
       <Nav />
       <Landing />
+      <UserProfile/>
       <Footer />
     </>
   );
