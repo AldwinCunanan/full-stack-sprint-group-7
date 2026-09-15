@@ -1,3 +1,4 @@
+import "../../../raceInfo.css"
 
 const race = {
     name: "Canadian Gradn Prix",
@@ -16,23 +17,23 @@ function RaceInfoMain(){
             <div className="race-info-main">
                 <div className="race-image">
                     <div className="race-info">
-                        <div>
+                        <div className="race-info-row">
                             <span>Race Name</span>
-                            <p className="race-name"></p>
+                            <p className="race-name">{race.name}</p>
                         </div>
                         
-                        <div>
+                        <div className="race-info-row">
                             <span>Location</span>
-                            <p className="race-location"></p>
+                            <p className="race-location">{race.location}</p>
                         </div>
                         
-                        <div>
+                        <div className="race-info-row">
                             <span>Track Length</span>
-                            <p className="track-length"></p>
+                            <p className="track-length">{race.trackLength}</p>
                         </div>
 
                         {race.racers.map((racer, index) => (
-                            <div>
+                            <div className="race-info-row">
                                 <span>Racer {index + 1}</span>
                                 <p>{racer}</p>
                             </div>
