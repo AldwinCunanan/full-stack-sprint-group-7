@@ -13,12 +13,13 @@ F1 racing
 |----------|-------------|
 | Name | Max Velocity |
 | Team | Thunderbolt Racing |
-| Number | 22 |
-| Wins | 7 |
-| Ranking | 3rd Overall |
-| Odds | +250 |
-| Vehicle | Vortex X1 |
-| Color | Matte Red & Black |
+| Country | USA |
+| Number | 7 |
+| Season Position | 3rd Overall |
+| Season Points | +250 |
+| Grand Prix Races | 12 |
+| Grand Prix Wins | 1 |
+
 
 ### Race
 | Attribute | Description |
