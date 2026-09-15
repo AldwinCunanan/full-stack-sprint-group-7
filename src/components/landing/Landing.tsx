@@ -133,18 +133,6 @@ type Racer = {
     grand_prix_wins: number;
 };
 
-const statistics: Statistics[] = [
-    {
-        name: "Racer Statistics",
-        stats: racers
-    }
-];
-
-type Statistics = {
-    name: string;
-    stats: Racer[];
-};
-
 export function Landing() {
     return (
         <>
@@ -154,21 +142,18 @@ export function Landing() {
                 <span></span>
             </header>
             <main>
-                <StatisticsList statistics={statistics} />
+                <RacerList racers={racers} />
             </main>
         </>
     );
 }
 
-function StatisticsList({ statistics }: { statistics: Statistics[] }) {
+function RacerList({ racers }: { racers: Racer[] }) {
     return (
         <section className="statistics_list">
-            {statistics.map((stat) => (
-                <section key={stat.name}>
-                    <h2>{stat.name}</h2>
-
+            <h2>Racer Statistics</h2>
                     <div className="racer_list">
-                        {stat.stats.map((racer) => (
+                        {racers.map((racer) => (
                             <div key={racer.name} className="racer_card">
                                 <strong>{racer.name}</strong>
                                 <div className="team">{racer.team}</div>
@@ -182,9 +167,6 @@ function StatisticsList({ statistics }: { statistics: Statistics[] }) {
                     </div>
 
                 </section>
-            ))}
-        </section>
-    );
-}
-
+            )}
+            
 export default Landing;
