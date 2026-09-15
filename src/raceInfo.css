@@ -6,7 +6,8 @@
 }
 
 .race-info-header h1 {
-    margin-bottom: 20px;
+    margin: 20px auto;
+    font-size: 50px;
 }
 
 .race-track-image {
@@ -14,11 +15,6 @@
     height: auto;
     border: 10px solid black;
     border-radius: 20px;
-}
-
-.race-info-header h1 {
-    margin: 20px auto;
-    font-size: 50px;
 }
 
 .race-info-main {
