@@ -33,21 +33,23 @@
     align-items: center;
     justify-content: center;
     padding: 0 20px;
-    background-color: #ffffff;
-    border-bottom: 1px solid #333;
+    border: 1px solid #ffffff;
+    background-color: #2C3E50;;
     box-sizing: border-box;
     box-shadow: 0 0 10px #306794;
+    border-radius: 10px;
+    margin: 1.5rem 0;
 }
 
 .race-info-row span {
     font-size: 18px;
     font-weight: bold;
-    color: black;
+    color: rgb(255, 253, 253);
 }
 
 .race-info-row p {
     font-size: 18px;
-    color: black;
+    color: rgb(255, 254, 254);
 }
 
 .race-info-row span,
