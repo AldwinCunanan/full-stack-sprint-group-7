@@ -24,11 +24,11 @@ F1 racing
 ### Race
 | Attribute | Description |
 |----------|-------------|
-| Track | Silverstone Circuit |
-| Racers | 20 |
-| Track Length | 5.89 km |
-| Number of Incidents | 4 |
-| Top Prize $ | $500,000 |
+| Race Name | Canadian Gradn Prix |
+| Location | Montreal Canada |
+| Track Length | 4.6km |
+| Racer 1 | Max Ver |
+| Racer 2 | Lar Aper |
 
 ### User Profile
 | Attribute | Description |
