@@ -17,8 +17,16 @@ main {
     border-radius: 10px;
 }
 
+.global-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 0.2rem;
+}
+
 /* HEADER + SECTION ALIGNMENT */
-header, main section {
+main section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +57,7 @@ a {
 }
 
 a:hover {
-    border-bottom: 1px solid #ffffff; /* White underline on hover */
+    border-bottom: 1px solid #ff0000; 
 }
 
 /* FORM CONTAINER */
@@ -83,6 +91,9 @@ input:focus, textarea:focus, select:focus {
 
 /* LOGO */
 .logo {
+    display:flex;
+    justify-content: center;
+    padding-top: 1.5rem;
     width: 400px;
     height: auto;
 }

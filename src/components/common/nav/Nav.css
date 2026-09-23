@@ -2,9 +2,9 @@ nav {
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.5em 0;
+  padding: 0.5em 0;
   background-color: #2C3E50;
-  border-bottom: 2px solid #ddd;
+  border-bottom: 2px solid #ff0000;
 }
 
 .page-links {
@@ -16,12 +16,18 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #003366;
+  color: #ff0000;
+  font-weight: 600;
+  padding: 0.25rem 0;
+  border-bottom: 3px solid transparent; /* prevents bobbing */
 }
 
-nav a:active {
-  border-bottom: 3px solid #003366;
-  padding-bottom: 0.25em;
+nav a:hover {
+  border-bottom: 3px solid #ff0000; /* red hover underline */
+}
+
+nav a.active {
+  border-bottom: 3px solid #ff0000; /* red active underline */
 }
 
 nav span {
