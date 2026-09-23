@@ -149,11 +149,6 @@ type Racer = {
 export function Racers() {
     return (
         <>
-            <header>
-                <img src="/logo.svg" alt="F1 Logo" className="logo" />
-                <h1>Formula One 2026</h1>
-                <span></span>
-            </header>
             <main>
                 <RacerList racers={racers} />
             </main>

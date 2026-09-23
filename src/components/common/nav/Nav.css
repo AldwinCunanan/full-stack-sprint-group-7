@@ -1,6 +1,27 @@
 nav {
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
+  align-items: center;
+  padding: 1.5em 0;
+  background-color: #2C3E50;
+  border-bottom: 2px solid #ddd;
+}
+
+.page-links {
+  display: flex;
+  gap: 2em;
+  font-size: 1.25em;
+  font-weight: 600;
+}
+
+nav a {
+  text-decoration: none;
+  color: #003366;
+}
+
+nav a:active {
+  border-bottom: 3px solid #003366;
+  padding-bottom: 0.25em;
 }
 
 nav span {
