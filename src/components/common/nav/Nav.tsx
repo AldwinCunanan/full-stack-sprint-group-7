@@ -1,27 +1,23 @@
+import { NavLink } from "react-router-dom";
 import "./Nav.css";
 
-function Nav() {
-    return(<nav>
-         <div className="page-links">
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-        </div>
-        <div className="user-management-links">
-            <span>
-                <a href="#"></a>
-            </span>
-        </div>
-    </nav>);
+export function Nav() {
+    return(
+        <nav>
+            <div className="page-links">
+                <NavLink to="/" end>
+                    Profile
+                </NavLink>
+                <NavLink to="/organization">
+                    Racers 
+                </NavLink>
+                <NavLink to="/tracks">
+                    Tracks 
+                </NavLink>
+                <NavLink to="/bets">
+                    Betting 
+                </NavLink>
+            </div>
+        </nav>
+    );
 }
-
-export default Nav;
