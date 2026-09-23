@@ -1,6 +1,6 @@
 import Nav from "./components/common/nav/Nav";
 import Footer from "./components/common/footer/Footer";
-import Landing  from "./components/landing/Landing";
+import Landing  from "./components/landing/Racers";
 // Aldwin's imports
 import UserProfile from "./components/user-profile/UserProfile"; 
 import RaceInfoHeader from "./components/common/RaceInfoHeader/RaceInfoHeader";
