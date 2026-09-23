@@ -58,7 +58,7 @@ function RaceInfoMain(){
     );
 };
 
-export default function Raceinfo() {
+export default function RaceInfo() {
     return (
         <>
             <RaceInfoHeader/>

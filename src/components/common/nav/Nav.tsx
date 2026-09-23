@@ -8,7 +8,7 @@ export function Nav() {
                 <NavLink to="/" end>
                     Profile
                 </NavLink>
-                <NavLink to="/organization">
+                <NavLink to="/racers">
                     Racers 
                 </NavLink>
                 <NavLink to="/tracks">

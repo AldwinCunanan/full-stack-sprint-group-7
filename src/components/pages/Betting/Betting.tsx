@@ -181,7 +181,6 @@ export function RacerList({ racers }: { racers: Racer[] }) {
                     </div>
 
                 </section>
-            );
-        }
+            )}
 
 export default Racers;
