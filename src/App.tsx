@@ -1,10 +1,10 @@
 import Nav from "./components/common/nav/Nav";
 import Footer from "./components/common/footer/Footer";
-import Landing  from "./components/landing/Racers";
+import Landing  from "./components/pages/Racers/Racers";
 // Aldwin's imports
-import UserProfile from "./components/user-profile/UserProfile"; 
-import RaceInfoHeader from "./components/common/RaceInfoHeader/RaceInfoHeader";
-import RaceInfoMain from "./components/common/RaceInfoMain/RaceInfoMain";
+import UserProfile from "./components/pages/Userprofile/UserProfile"; 
+import RaceInfoHeader from "./components/pages/Raceinfo/RaceInfoHeader";
+import RaceInfoMain from "./components/pages/Raceinfo/RaceInfoMain";
 
 // functions that return JSX are React Components
 // These work a lot like HTML; they have parents and children
