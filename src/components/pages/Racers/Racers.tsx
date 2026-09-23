@@ -146,7 +146,7 @@ type Racer = {
     image?: string; 
 };
 
-export function Landing() {
+export function Racers() {
     return (
         <>
             <header>
@@ -161,7 +161,7 @@ export function Landing() {
     );
 }
 
-function RacerList({ racers }: { racers: Racer[] }) {
+export function RacerList({ racers }: { racers: Racer[] }) {
     return (
         <section className="statistics_list">
             <h2>Racer Statistics</h2>
@@ -183,4 +183,4 @@ function RacerList({ racers }: { racers: Racer[] }) {
                 </section>
             )}
 
-export default Landing;
+export default Racers;

@@ -1,4 +1,16 @@
+import track_canada_montreal from "../../../assets/track_canada_montreal.png"
 import "../../../raceInfo.css"
+
+function RaceInfoHeader(){
+    return(
+        <div>
+            <header className="race-info-header">
+                <h1>Race Information</h1>
+                <img className="race-track-image" src={track_canada_montreal} alt="race track image" />
+            </header>
+        </div>
+    )
+}
 
 const race = {
     name: "Canadian Gradn Prix",
@@ -46,4 +58,11 @@ function RaceInfoMain(){
     );
 };
 
-export default RaceInfoMain;
+export default function Raceinfo() {
+    return (
+        <>
+            <RaceInfoHeader/>
+            <RaceInfoMain/>
+        </>
+    );
+}

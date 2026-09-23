@@ -1,28 +1,24 @@
-import Nav from "./components/common/nav/Nav";
-import Footer from "./components/common/footer/Footer";
 import Landing  from "./components/pages/Racers/Racers";
-// Aldwin's imports
 import UserProfile from "./components/pages/Userprofile/UserProfile"; 
+import Racers from "./components/pages/Racers/Racers";
 import RaceInfoHeader from "./components/pages/Raceinfo/RaceInfoHeader";
-import RaceInfoMain from "./components/pages/Raceinfo/RaceInfoMain";
+import RaceInfoMain from "./components/pages/Raceinfo/RaceInfo";
 
-// functions that return JSX are React Components
-// These work a lot like HTML; they have parents and children
-// files including them must have .tsx extension
+import { Routes, Route } from "react-router-dom";
+import { Layout } from "./components/common/layout/Layout";
+
 function App() {
-  // App is a parent of Nav, Landing, and Footer
-  return (
-    // only one tag can be returned (in this case, a simple wrapper tag)
-    <>
-      <Nav />
-      <Landing />
-      <UserProfile/>
-      <Footer />
-      <RaceInfoHeader/>
-      <RaceInfoMain/>
-    </>
-  );
-};
 
-// export component for use in main.tsx
-export default App;
+  return (
+
+      <Routes>
+        <Route path="/" element={<UserProfile />}> 
+          <Route index element={<Racers />} />
+          <Route path="employees" element={<Landing />} />
+          <Route path="organization" element={<Organization />} />
+        </Route>  
+      </Routes>
+    );
+}
+
+export default App
