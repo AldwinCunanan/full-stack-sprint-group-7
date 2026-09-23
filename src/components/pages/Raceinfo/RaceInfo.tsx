@@ -1,5 +1,5 @@
 import track_canada_montreal from "../../../assets/track_canada_montreal.png"
-import "../../../raceInfo.css"
+import "./raceInfo.css"
 
 function RaceInfoHeader(){
     return(
