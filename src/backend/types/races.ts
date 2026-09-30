@@ -1,7 +1,8 @@
-export interface Races {
+export interface Race {
     name: string,
     location: string,
     trackLength: string,
-    date: string,
+    trackImg: string,
+    date: Date,
     drivers: string[]
 }
