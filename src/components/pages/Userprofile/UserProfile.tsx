@@ -14,6 +14,13 @@ interface ProfileData {
     }
 }
 
+export interface Transaction {
+    id: number;
+    type: "Deposit" | "Withdrawal";
+    amount: number;
+    date: string;
+}
+
 const mockProfile: ProfileData[] = [{
     id: 1,
     username: "SpeedRace67",
