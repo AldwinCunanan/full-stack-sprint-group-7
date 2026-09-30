@@ -88,12 +88,24 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
         setActiveAction(null);
     };
 
-
-        
     return (
         <section className="user-profile">
             <h2>User Profile</h2>
-            <ProfileList profiles={mockProfile}/>
+            <ProfileList profiles={mockProfile} currentCredits={credits}/>
+
+            <div className="wallet-action">
+                <button
+                    onClick={() => {
+                    setActiveAction("deposit");
+                    setErrorMsg("");
+    }}
+                    >Deposit Funds</button>
+                <button
+                    onClick={() => {
+                        setActiveAction("withdraw");
+                        setErrorMsg("");
+                    }}>Withdraw Funds</button>
+            </div>
         </section>
     );
 }
