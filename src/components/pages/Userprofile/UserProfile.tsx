@@ -42,7 +42,37 @@ const mockProfile: ProfileData[] = [{
     }
 }]
 
-export function UserProfile() {
+export function UserProfile({ credits, setCredits }: UserProfileProps) {
+
+    // Local state for toggling the form visibility and handling form inputs
+    const [activeAction, setActiveAction] = useState<"deposit" | "withdraw" | null>(null);
+    const [amountInput, setAmountInput] = useState<string>("");
+    const [errorMsg, setErrorMsg] = useState<string>("");
+
+    // Add remove transaction history
+    const [transactions, setTransactions] = useState<Transaction[]>([{
+        id: 1, type:"Deposit", amount: 1000, date: "2026-09-30"
+    },
+    ]);
+
+    const handleSubmit = (e: React.FormEvent) => {
+        e.preventDefault();
+        const numAmount = Number(amountInput);
+
+        // Validation Checks
+        if (isNaN(numAmount) || numAmount <=0) {
+            setErrorMsg("Please enter a valid amount.");
+            return;
+        }
+        if (activeAction === "withdraw" && numAmount > credits){
+            setErrorMsg("Insufficient funds! You cannot withdraw more than you available credit")
+            return
+        }
+        
+    }
+
+
+        
     return (
         <section className="user-profile">
             <h2>User Profile</h2>
