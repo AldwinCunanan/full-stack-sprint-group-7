@@ -21,6 +21,11 @@ export interface Transaction {
     date: string;
 }
 
+interface UserProfileProps {
+    credits: number;
+    setCredits: React.Dispatch<React.SetStateAction<number>>;
+}
+
 const mockProfile: ProfileData[] = [{
     id: 1,
     username: "SpeedRace67",
