@@ -1,3 +1,4 @@
+import React, { useState } from 'react';
 import "./UserProfile.css"
 interface ProfileData {
     id: number;
