@@ -26,7 +26,7 @@ function App() {
   };
   return (
       <Routes>
-        <Route path="/" element={<Layout />}> 
+        <Route path="/" element={<Layout credits={credits}/>}> 
           <Route index element={<UserProfile credits={credits} setCredits={setCredits} />} />
           <Route path="racers" element={
             <Racers 

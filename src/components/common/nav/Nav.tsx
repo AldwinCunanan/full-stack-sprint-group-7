@@ -1,7 +1,11 @@
 import { NavLink } from "react-router-dom";
 import "./Nav.css";
 
-export function Nav() {
+interface NavProps {
+    credits:number;
+}
+
+export function Nav({credits}: NavProps) {
     return(
         <nav>
             <div className="page-links">
@@ -17,6 +21,9 @@ export function Nav() {
                 <NavLink to="/bets">
                     Betting 
                 </NavLink>
+            </div>
+            <div className="nav-wallet">
+                <span>$<strong>{credits}</strong></span>
             </div>
         </nav>
     );
