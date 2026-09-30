@@ -1,104 +1,38 @@
 import "./races.css"
-import { type Races } from "../../../backend/types/races"
+//import { useState } from "react"
+import { Race } from "../../../backend/types/races"
+import RaceForm from "../../Races/RaceForm"
+import DeleteRace from "../../Races/DeleteRace"
 
-const races: Races[] = [
-    {
-        name: "Canadian Gradn Prix",
-        location: "Montreal Canada",
-        trackLength: "4.6km",
-        date: "9/28/2026",
-        drivers: [
-            "Max Ver",
-            "Lar Aper",
-            "Hunter Bow",
-        ]
-    },
-    {
-        name: "Bahrain Grand Prix",
-        location: "Sepang",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "Singapore Grand Prix",
-        location: "Singapore",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "USA Grand Prix",
-        location: "Austin",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "Mexican Grand Prix",
-        location: "Mexico City",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "São Paulo Grand Prix",
-        location: "Brazil",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "Qatar Grand Prix",
-        location: "Lusail",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-    {
-        name: "Abu Dhabi Grand Prix",
-        location: "Lusail",
-        trackLength: "5.5km",
-        date: "10/02/2026",
-        drivers: [
-            "Max Verstappen"
-        ]
-    },
-]
+type racePageProps = {
+    races: Race[],
+    updateRaces: React.Dispatch<React.SetStateAction<Race[]>>
+}
 
-function Races(){
+function Races({races, updateRaces}: racePageProps){
     return(
         <>
             <header className="races-header">
                 <h2>Races</h2>
             </header>
 
-            <main className="race-main">
+            <RaceForm updateRaces={updateRaces}/>
 
-                {races.map((races) => (
-                    <div className="race-box">
+            <main className="race-main">
+                {races.map((race) => (
+                    <div className="race-box" style={{backgroundImage: `url(${race.trackImg})`}}>
                     <div className="race-box-header">
-                        <span className="race-date">{races.date}</span>
-                        <span className="race-name">{races.name}</span>
+                        <span className="race-date">{race.date.toDateString()}</span>
+                        <span className="race-name">{race.name}</span>
                     </div>
 
                     <div className="race-divider"></div>
 
                     <div className="race-box-location">
-                        <p>{races.location}</p>
+                        <p>{race.location}</p>
                     </div>
+
+                    <DeleteRace name={race.name} updateRaces={updateRaces} />
                 </div>
                 ))}
 
