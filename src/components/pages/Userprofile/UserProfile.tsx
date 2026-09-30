@@ -88,6 +88,11 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
         setActiveAction(null);
     };
 
+    // Remove element/transaction history
+    const handleRemoveTransaction = (id: number) => {
+        setTransactions(transactions.filter((tx) => tx.id !== id));
+  };
+
     return (
         <section className="user-profile">
             <h2>User Profile</h2>
@@ -107,7 +112,7 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
                     }}>Withdraw Funds</button>
             </div>
 
-        // Form component
+        {/*Form component*/}
         {activeAction && (
             <form onSubmit={handleTransactionSubmit} className="wallet-form">
                 <h3>{activeAction === "deposit" ? "Deposit Credits" : "Withdraw Credits"}</h3>
@@ -123,7 +128,25 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
                 {errorMsg && <p className="error-message">{errorMsg}</p>}
             </form>
         )}
-        
+
+        {/*Transaction history container*/}
+        <div className="transaction-history">
+            <h3>Transaction History</h3>
+            {transactions.length === 0 ? (
+                <p>No transaction logged.</p>
+            ) : (
+                <ul className="transaction-list">
+                    {transactions.map((tx) => (
+                        <li key={tx.id} className="transaction-item">
+                            <span>
+                                {tx.date} — <strong>{tx.type}</strong>: ${tx.amount}
+                            </span>
+                            <button onClick={() => handleRemoveTransaction}></button>
+                        </li>
+                    ))}
+                </ul>
+            )}
+        </div>
         </section>
     );
 }
