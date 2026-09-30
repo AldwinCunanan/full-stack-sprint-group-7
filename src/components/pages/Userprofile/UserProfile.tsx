@@ -68,8 +68,25 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
             setErrorMsg("Insufficient funds! You cannot withdraw more than you available credit")
             return
         }
-        
-    }
+
+        // Shared top-level credits state
+        const updatedCredits = activeAction ==="deposit" ? credits + numAmount : credits - numAmount;
+        setCredits(updatedCredits)
+
+        // Dynamic Element Addition
+        const newTx: Transaction = {
+            id: Date.now(),
+            type: activeAction === "deposit" ? "Deposit" : "Withdrawal",
+            amount: numAmount,
+            date: new Date().toLocaleDateString(),
+        };
+        setTransactions([newTx, ...transactions]);
+
+        // Form reset
+        setAmountInput("");
+        setErrorMsg("");
+        setActiveAction(null);
+    };
 
 
         
