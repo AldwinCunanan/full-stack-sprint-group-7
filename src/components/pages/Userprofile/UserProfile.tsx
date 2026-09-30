@@ -141,12 +141,14 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
                             <span>
                                 {tx.date} — <strong>{tx.type}</strong>: ${tx.amount}
                             </span>
-                            <button onClick={() => handleRemoveTransaction}></button>
+                            <button onClick={() => handleRemoveTransaction(tx.id)} className="remove-btn">
+                                Clear Log
+                            </button>
                         </li>
                     ))}
                 </ul>
             )}
-        </div>
+            </div>
         </section>
     );
 }
