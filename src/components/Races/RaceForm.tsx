@@ -1,7 +1,6 @@
 import { useState } from "react"
 import { Race } from "../../backend/types/races";
 
-//updateRaces
 function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateAction<Race[]>> }){
 
     const [raceName, setRaceName] = useState('');
@@ -11,6 +10,47 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
     const [errors, setErrors] = useState('');
 
     const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+        e.preventDefault();
+
+        const trackInKm = Number(lengthOfTrack);
+
+        if(!raceName || !locationName || !dateOfRace || !lengthOfTrack){
+            setErrors("Must have filled input fields!")
+            return;
+        }
+
+        if(raceName.trim().length < 3 || locationName.trim().length < 3){
+            setErrors("Text fields need more than three characters!")
+            return;
+        }
+
+        if(raceName.length > 30 || locationName.length < 30){
+            setErrors("Text fields cannot have more than 30 characters!")
+            return;
+        }
+
+        if(trackInKm < 1 || trackInKm > 15){
+            setErrors("Track length can only be between 1 and 15 km!")
+            return;
+        }
+
+        if(!/^\d{1,2}(\.\d)?$/.test(lengthOfTrack)){
+            setErrors("Track length can only have one decimal place!")
+            return;
+        }
+
+        setErrors('');
+
+        //update
+        updateRaces(prev => [...prev, 
+            {
+                name: raceName,
+                location: locationName,
+                trackLength: lengthOfTrack,
+                date: new Date(dateOfRace),
+                drivers: ["Max"]
+            }
+        ])
         
     }
 
@@ -20,7 +60,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
 
             <input type="text"
             className="field-race-name"
-            placeholder="Enter Race Name"
+            placeholder="Enter race name"
             value={raceName}
             onChange={e => {
                 setRaceName(e.target.value)
@@ -29,7 +69,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
 
             <input type="text"
             className="field-race-location"
-            placeholder="Enter Race Location"
+            placeholder="Enter race location"
             value={locationName}
             onChange={e => {
                 setLocationName(e.target.value)
@@ -38,9 +78,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
 
             <input type="number"
             className="field-race-length"
-            placeholder="Enter Track Length"
-            min="1"
-            max="15"
+            placeholder="Enter track length in kilometers"
             value={lengthOfTrack}
             onChange={e => {
                 setLengthOfTrack(e.target.value)
