@@ -55,7 +55,7 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
     },
     ]);
 
-    const handleSubmit = (e: React.FormEvent) => {
+    const handleTransactionSubmit = (e: React.FormEvent) => {
         e.preventDefault();
         const numAmount = Number(amountInput);
 
@@ -106,6 +106,24 @@ export function UserProfile({ credits, setCredits }: UserProfileProps) {
                         setErrorMsg("");
                     }}>Withdraw Funds</button>
             </div>
+
+        // Form component
+        {activeAction && (
+            <form onSubmit={handleTransactionSubmit} className="wallet-form">
+                <h3>{activeAction === "deposit" ? "Deposit Credits" : "Withdraw Credits"}</h3>
+                <div className="form-group">
+                    <input 
+                        type="number"
+                        value={amountInput}
+                        onChange={(e) => setAmountInput(e.target.value)}
+                        placeholder="Enter amount..." />
+                    <button type="submit">Confirm{activeAction}</button>
+                    <button type="button" onClick={()=> setActiveAction(null)}>Cancel</button>
+                </div>
+                {errorMsg && <p className="error-message">{errorMsg}</p>}
+            </form>
+        )}
+        
         </section>
     );
 }
