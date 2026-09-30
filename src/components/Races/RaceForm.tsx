@@ -1,3 +1,4 @@
+import "./raceForm.css"
 import { useState } from "react"
 import { Race } from "../../backend/types/races";
 
@@ -5,6 +6,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
 
     const [raceName, setRaceName] = useState('');
     const [locationName, setLocationName] = useState('');
+    const [trackImg, setTrackImg] = useState('');
     const [dateOfRace, setDateOfRace] = useState('');
     const [lengthOfTrack, setLengthOfTrack] = useState('');
     const [errors, setErrors] = useState('');
@@ -24,7 +26,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
             return;
         }
 
-        if(raceName.length > 30 || locationName.length < 30){
+        if(raceName.trim().length > 30 || locationName.trim().length > 30){
             setErrors("Text fields cannot have more than 30 characters!")
             return;
         }
@@ -47,6 +49,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
                 name: raceName,
                 location: locationName,
                 trackLength: lengthOfTrack,
+                trackImg: trackImg,
                 date: new Date(dateOfRace),
                 drivers: ["Max"]
             }
@@ -67,14 +70,24 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
             }} 
             />
 
-            <input type="text"
-            className="field-race-location"
-            placeholder="Enter race location"
+            {/* update to loop through list of tracks*/}
+            <select className="field-race-location"
             value={locationName}
             onChange={e => {
-                setLocationName(e.target.value)
-            }} 
-            />
+                const {locationName, trackImg} = JSON.parse(e.target.value);
+                setLocationName(locationName);
+                setTrackImg(trackImg);
+            }}>
+                <option value='' hidden>Choose location</option>
+                <option value='{"locationName":"Montreal", "trackImg":"/racesImages/tracks/montreal.png"}'>Montreal</option>
+                <option value='{"locationName":"Sepang", "trackImg":"/racesImages/tracks/sepang.png"}'>Sepang</option>
+                <option value='{"locationName":"Singapore", "trackImg":"/racesImages/tracks/singapore.png"}'>Singapore</option>
+                <option value='{"locationName":"Austin", "trackImg":"/racesImages/tracks/austin.png"}'>Austin</option>
+                <option value='{"locationName":"Mexico City", "trackImg":"/racesImages/tracks/mexico_city.png"}'>Mexico City</option>
+                <option value='{"locationName":"Sao Paulo", "trackImg":"/racesImages/tracks/sao_paulo.png"}'>Sao Paulo</option>
+                <option value='{"locationName":"Susail", "trackImg":"/racesImages/tracks/susail.png"}'>Lusail</option>
+                <option value='{"locationName":"Abu Dhabi", "trackImg":"/racesImages/tracks/abu_dhabi.png"}'>Abu Dhabi</option>
+            </select>
 
             <input type="number"
             className="field-race-length"
@@ -95,7 +108,7 @@ function RaceForm({ updateRaces }: { updateRaces: React.Dispatch<React.SetStateA
             }} 
             />
 
-            <button type="submit">
+            <button className="race-submit-btn" type="submit">
                 submit
             </button>
 
