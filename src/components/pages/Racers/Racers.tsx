@@ -147,7 +147,7 @@ type Racer = {
     image?: string;
 };
 
-type Teamsheet = {
+export type Teamsheet = {
     id: string;
     teamName: string;
     racers: Racer[];
@@ -305,33 +305,29 @@ export function TeamsheetList({teamsheets, deleteTeamsheet}: {
     )
 }
 
-export function Racers() {
-    const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
-
-    const addTeamsheet = (newTeamsheet: Teamsheet) => {
-        setTeamsheets(prev => [
-            ...prev,
-            newTeamsheet
-        ]);
-    };
-
-        const deleteTeamsheet = (id: string) => {
-        setTeamsheets(prev =>
-            prev.filter(
-                teamsheet => teamsheet.id !== id
-            )
-        );
-    };
-
+export function Racers({
+    teamsheets,
+    addTeamsheet,
+    deleteTeamsheet
+}: {
+    teamsheets: Teamsheet[];
+    addTeamsheet: (teamsheet: Teamsheet) => void;
+    deleteTeamsheet: (id: string) => void;
+}) {
     return (
         <main>
             <AddTeamsheet
-                addTeamsheet={addTeamsheet}/>
+                addTeamsheet={addTeamsheet}
+            />
+
             <TeamsheetList
                 teamsheets={teamsheets}
-                deleteTeamsheet={deleteTeamsheet}/>
-            <RacerList 
-                racers={racers}/>
+                deleteTeamsheet={deleteTeamsheet}
+            />
+
+            <RacerList
+                racers={racers}
+            />
         </main>
     );
 }
