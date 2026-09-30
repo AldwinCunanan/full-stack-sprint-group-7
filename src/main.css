@@ -161,3 +161,18 @@ input:focus, textarea:focus, select:focus {
     border-radius: 8px;
     margin-bottom: 0.5rem;
 }
+
+.racer_selection button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.racer_selection button.selected {
+    background-color: #4caf50;
+    color: white;
+    border-color: #388e3c;
+}
