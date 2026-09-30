@@ -256,7 +256,7 @@ export function AddTeamsheet({addTeamsheet}: {addTeamsheet: (teamsheet: Teamshee
                 <input
                     type="number"
                     min="0"
-                    value={bettingTotal}
+                    value={bettingTotal === 0 ? "": bettingTotal}
                     onChange={(e) =>
                         setBettingTotal(Number(e.target.value))
                     }
