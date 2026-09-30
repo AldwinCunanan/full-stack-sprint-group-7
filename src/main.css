@@ -178,13 +178,16 @@ input:focus, textarea:focus, select:focus {
 }
 
 .teamsheet_list {
-    display: grid;
-    grid-template-columns: repeat(3, 250px);
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
     gap: 20px;
 }
 
 .teamsheet_list h2 {
-    grid-column: 1 / -1;
+    width: 100%;
+    text-align: center;
 }
 
 .teamsheet_card {
