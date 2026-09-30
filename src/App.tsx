@@ -9,6 +9,7 @@ import Betting from "./components/pages/Betting/Betting";
 
 function App() {
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
+  const [credits, setCredits] = useState<number>(1000);
 
   const addTeamsheet = (newTeamsheet: Teamsheet) => {
     setTeamsheets(prev => [
@@ -26,7 +27,7 @@ function App() {
   return (
       <Routes>
         <Route path="/" element={<Layout />}> 
-          <Route index element={<UserProfile />} />
+          <Route index element={<UserProfile credits={credits} setCredits={setCredits} />} />
           <Route path="racers" element={
             <Racers 
               teamsheets={teamsheets}
