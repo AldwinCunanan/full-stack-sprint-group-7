@@ -176,3 +176,17 @@ input:focus, textarea:focus, select:focus {
     color: white;
     border-color: #388e3c;
 }
+
+.teamsheet_list {
+    display: grid;
+    grid-template-columns: repeat(3, 250px);
+    gap: 20px;
+}
+
+.teamsheet_list h2 {
+    grid-column: 1 / -1;
+}
+
+.teamsheet_card {
+    width: 250px;
+}
