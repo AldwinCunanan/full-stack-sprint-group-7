@@ -25,6 +25,8 @@ export interface Transaction {
 interface UserProfileProps {
     credits: number;
     setCredits: React.Dispatch<React.SetStateAction<number>>;
+    transactions: Transaction[];
+    setTransactions: React.Dispatch<React.SetStateAction<Transaction[]>>;
 }
 
 const mockProfile: ProfileData[] = [{
@@ -42,18 +44,13 @@ const mockProfile: ProfileData[] = [{
     }
 }]
 
-export function UserProfile({ credits, setCredits }: UserProfileProps) {
+export function UserProfile({ credits, setCredits, transactions, setTransactions }: UserProfileProps) {
 
     // Local state for toggling the form visibility and handling form inputs
     const [activeAction, setActiveAction] = useState<"deposit" | "withdraw" | null>(null);
     const [amountInput, setAmountInput] = useState<string>("");
     const [errorMsg, setErrorMsg] = useState<string>("");
 
-    // Add remove transaction history
-    const [transactions, setTransactions] = useState<Transaction[]>([{
-        id: 1, type:"Deposit", amount: 1000, date: "2026-09-30"
-    },
-    ]);
 
     const handleTransactionSubmit = (e: React.FormEvent) => {
         e.preventDefault();

@@ -5,11 +5,16 @@ import UserProfile from "./components/pages/Userprofile/UserProfile";
 import Racers, { Teamsheet } from "./components/pages/Racers/Racers";
 import RaceInfo from "./components/pages/Raceinfo/RaceInfo";
 import Betting from "./components/pages/Betting/Betting";
+import { Transaction } from "./components/pages/Userprofile/UserProfile";
 
 
 function App() {
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
   const [credits, setCredits] = useState<number>(1000);
+  const [transactions, setTransactions] = useState<Transaction[]>([{
+          id: 1, type:"Deposit", amount: 1000, date: "2026-09-30"
+      },
+      ]);
 
   const addTeamsheet = (newTeamsheet: Teamsheet) => {
     setTeamsheets(prev => [
@@ -27,7 +32,8 @@ function App() {
   return (
       <Routes>
         <Route path="/" element={<Layout credits={credits}/>}> 
-          <Route index element={<UserProfile credits={credits} setCredits={setCredits} />} />
+          <Route index element={<UserProfile credits={credits} setCredits={setCredits} 
+                                            transactions={transactions} setTransactions={setTransactions}/>} />
           <Route path="racers" element={
             <Racers 
               teamsheets={teamsheets}
