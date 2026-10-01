@@ -119,7 +119,7 @@ export function UserProfile({ credits, setCredits, transactions, setTransactions
                         value={amountInput}
                         onChange={(e) => setAmountInput(e.target.value)}
                         placeholder="Enter amount..." />
-                    <button type="submit">Confirm{activeAction}</button>
+                    <button type="submit">Confirm {activeAction}</button>
                     <button type="button" onClick={()=> setActiveAction(null)}>Cancel</button>
                 </div>
                 {errorMsg && <p className="error-message">{errorMsg}</p>}
