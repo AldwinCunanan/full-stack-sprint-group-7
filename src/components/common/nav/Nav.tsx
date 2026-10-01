@@ -1,27 +1,30 @@
+import { NavLink } from "react-router-dom";
 import "./Nav.css";
 
-function Nav() {
-    return(<nav>
-         <div className="page-links">
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-            <span>
-                <a href="#"></a>
-            </span>
-        </div>
-        <div className="user-management-links">
-            <span>
-                <a href="#"></a>
-            </span>
-        </div>
-    </nav>);
+interface NavProps {
+    credits:number;
 }
 
-export default Nav;
+export function Nav({credits}: NavProps) {
+    return(
+        <nav>
+            <div className="page-links">
+                <NavLink to="/" end>
+                    Profile
+                </NavLink>
+                <NavLink to="/racers">
+                    Racers 
+                </NavLink>
+                <NavLink to="/tracks">
+                    Tracks 
+                </NavLink>
+                <NavLink to="/bets">
+                    Betting 
+                </NavLink>
+            </div>
+            <div className="nav-wallet">
+                <span>$<strong>{credits}</strong></span>
+            </div>
+        </nav>
+    );
+}
