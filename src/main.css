@@ -17,8 +17,16 @@ main {
     border-radius: 10px;
 }
 
+.global-header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 1.5rem;
+    padding-bottom: 0.2rem;
+}
+
 /* HEADER + SECTION ALIGNMENT */
-header, main section {
+main section {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -49,7 +57,7 @@ a {
 }
 
 a:hover {
-    border-bottom: 1px solid #ffffff; /* White underline on hover */
+    border-bottom: 1px solid #ff0000; 
 }
 
 /* FORM CONTAINER */
@@ -83,6 +91,9 @@ input:focus, textarea:focus, select:focus {
 
 /* LOGO */
 .logo {
+    display:flex;
+    justify-content: center;
+    padding-top: 1.5rem;
     width: 400px;
     height: auto;
 }
@@ -144,7 +155,41 @@ input:focus, textarea:focus, select:focus {
 /* RACER IMAGE */
 .racer_image {
     width: 100%;
-    height: auto;
+    height: 200px;
+    object-fit: cover;
+    object-position: top center;   
     border-radius: 8px;
     margin-bottom: 0.5rem;
+}
+
+.racer_selection button {
+    padding: 10px 15px;
+    margin: 5px;
+    border: 2px solid #ccc;
+    background-color: white;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.racer_selection button.selected {
+    background-color: #4caf50;
+    color: white;
+    border-color: #388e3c;
+}
+
+.teamsheet_list {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 20px;
+}
+
+.teamsheet_list h2 {
+    width: 100%;
+    text-align: center;
+}
+
+.teamsheet_card {
+    width: 250px;
 }
