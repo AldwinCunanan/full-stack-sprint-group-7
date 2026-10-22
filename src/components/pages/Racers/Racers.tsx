@@ -208,7 +208,6 @@ export function AddTeamsheet({addTeamsheet}: {addTeamsheet: (teamsheet: Teamshee
         };
 
         addTeamsheet(newTeamsheet);
-
         setTeamName("");
         setSelectedRacers([]);
         setBettingTotal(0);
