@@ -1,3 +1,11 @@
+/**
+ * Repository: transactionRepo
+ * 
+ * Purpose:
+ * Handles data access and CRUD operations for transaction records. 
+ * Currently interacts with pre-loaded mock test data, keeping data storage details 
+ * completely decoupled from business logic and React state.
+ */
 import { transactionRepo } from "../repositories/transactionRepo";
 import { Transaction } from "../types/userProfile";
 

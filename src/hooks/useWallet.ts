@@ -1,3 +1,17 @@
+/**
+ * Custom Hook: useWallet
+ * 
+ * Purpose:
+ * Manages presentation-level React state for user credits, transaction history, and UI error messages.
+ * 
+ * Returned Values & Uses:
+ * - credits: current numeric credit balance for display in UI components.
+ * - transactions: list of logged transaction objects.
+ * - errorMsg: active validation error string (or empty if no error).
+ * - deposit(amount): async function to handle credit deposits via walletService.
+ * - withdraw(amount): async function to handle credit withdrawals via walletService.
+ * - removeTransaction(id): function to delete a logged transaction record.
+ */
 import { useState, useEffect } from "react";
 import { Transaction } from "../types/userProfile"; 
 import { walletService } from "../services/walletService";

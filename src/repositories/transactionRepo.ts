@@ -1,11 +1,14 @@
-import { Transaction } from "../types/userProfile"; // Adjust path to your types file
+/**
+ * Repository: transactionRepo
+ * 
+ * Purpose:
+ * Handles data access and CRUD operations for transaction records. 
+ * Currently interacts with pre-loaded mock test data, keeping data storage details 
+ * completely decoupled from business logic and React state.
+ */
+import { Transaction } from "../types/userProfile"; 
 import { sampleTransactions } from "../data/sampleTransaction";
 
-/**
- * Transaction Repository
- * Handles CRUD operations for transactions against mock data.
- * Simulates async behavior to mirror a real database or API client.
- */
 let transactionsStore: Transaction[] = [...sampleTransactions];
 
 export const transactionRepo = {
