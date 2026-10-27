@@ -1,4 +1,5 @@
-import {TeamsheetList,Teamsheet} from "../Racers/Racers";
+import {TeamsheetList} from "../Racers/Racers";
+import { Teamsheet } from "../../../types/teamsheet_type";
 
 type BettingProps = {
     teamsheets: Teamsheet[];

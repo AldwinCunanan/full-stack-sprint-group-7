@@ -1,7 +1,9 @@
-import { type Race } from "../types/races"
+import { type Race } from "../../types/races"
+import { Guid } from "guid-typescript";
 
 export const races: Race[] = [
     {
+        id: Guid.create().toString(),
         name: "Canadian Gradn Prix",
         location: "Montreal",
         trackLength: "4.6km",
@@ -14,6 +16,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "Bahrain Grand Prix",
         location: "Sepang",
         trackLength: "5.5km",
@@ -24,6 +27,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "Singapore Grand Prix",
         location: "Singapore",
         trackLength: "5.5km",
@@ -34,6 +38,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "USA Grand Prix",
         location: "Austin",
         trackLength: "5.5km",
@@ -44,6 +49,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "Mexican Grand Prix",
         location: "Mexico City",
         trackLength: "5.5km",
@@ -54,6 +60,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "São Paulo Grand Prix",
         location: "São Paulo",
         trackLength: "5.5km",
@@ -64,6 +71,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "Qatar Grand Prix",
         location: "Lusail",
         trackLength: "5.5km",
@@ -74,6 +82,7 @@ export const races: Race[] = [
         ]
     },
     {
+        id: Guid.create().toString(),
         name: "Abu Dhabi Grand Prix",
         location: "Abu Dhabi",
         trackLength: "5.5km",
