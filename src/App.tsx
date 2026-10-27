@@ -5,14 +5,10 @@ import UserProfile from "./components/pages/Userprofile/UserProfile";
 import Racers, { Teamsheet } from "./components/pages/Racers/Racers";
 import Betting from "./components/pages/Betting/Betting";
 import Races from "./components/pages/Races/Races";
-import { races } from "./backend/data/racesData";
-import type { Race } from "./backend/types/races";
 import { useWallet } from "./hooks/useWallet";
-
 
 function App() {
   const wallet = useWallet();
-  const [raceData, setRaceData] = useState<Race[]>(races)
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
   const addTeamsheet = (newTeamsheet: Teamsheet) => {
     setTeamsheets(prev => [
@@ -36,7 +32,7 @@ function App() {
               teamsheets={teamsheets}
               addTeamsheet={addTeamsheet}
               deleteTeamsheet={deleteTeamsheet}/>} />
-          <Route path="tracks" element={<Races races={raceData} updateRaces={setRaceData}/>} />
+          <Route path="tracks" element={<Races />} />
           <Route path="bets" element={
             <Betting
              teamsheets={teamsheets}
