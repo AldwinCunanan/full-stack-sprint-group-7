@@ -1,15 +1,22 @@
 import "./races.css"
-//import { useState } from "react"
-import { Race } from "../../../backend/types/races"
+import { useState, useEffect } from "react"
+import { Race } from "../../../types/races"
 import RaceForm from "../../Races/RaceForm"
 import DeleteRace from "../../Races/DeleteRace"
+import { raceFormService } from "../../../services/raceFormServices"
 
-type racePageProps = {
-    races: Race[],
-    updateRaces: React.Dispatch<React.SetStateAction<Race[]>>
-}
+function Races(){
+    const [races, updateRaces] = useState<Race[]>([]);
 
-function Races({races, updateRaces}: racePageProps){
+    useEffect(() => {
+        async function loadRaces() {
+            const data = await raceFormService.getRaces();
+            updateRaces(data);
+        }
+
+        loadRaces();
+     }, []);
+
     return(
         <>
             <header className="races-header">
@@ -20,7 +27,12 @@ function Races({races, updateRaces}: racePageProps){
 
             <main className="race-main">
                 {races.map((race) => (
-                    <div className="race-box" style={{backgroundImage: `url(${race.trackImg})`}}>
+                    <div 
+                        key={race.id}
+                        className="race-box"
+                        style={{backgroundImage: `url(${race.trackImg})`}}
+                    >
+
                     <div className="race-box-header">
                         <span className="race-date">{race.date.toDateString()}</span>
                         <span className="race-name">{race.name}</span>
@@ -32,7 +44,7 @@ function Races({races, updateRaces}: racePageProps){
                         <p>{race.location}</p>
                     </div>
 
-                    <DeleteRace name={race.name} updateRaces={updateRaces} />
+                    <DeleteRace raceId={race.id} updateRaces={updateRaces} />
                 </div>
                 ))}
 
