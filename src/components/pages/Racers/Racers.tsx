@@ -1,24 +1,7 @@
 import React, { useState } from 'react';
 import { racers } from '../../../data/racers';
-
-type Racer = {
-    name: string;
-    team: string;
-    country: string;
-    number: number;
-    season_position: string;
-    season_points: number;
-    grand_prix_races: number;
-    grand_prix_wins: number;
-    image?: string;
-};
-
-export type Teamsheet = {
-    id: string;
-    teamName: string;
-    racers: Racer[];
-    bettingTotal: number;
-};
+import { Racer } from '../../../types/racer_type';
+import { Teamsheet } from '../../../types/teamsheet_type';
 
 export function AddTeamsheet({addTeamsheet}: {addTeamsheet: (teamsheet: Teamsheet) => void;}) {
     const [teamName, setTeamName] = useState("");
