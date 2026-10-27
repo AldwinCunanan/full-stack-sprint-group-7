@@ -1,12 +1,12 @@
 import { Outlet } from "react-router-dom";
 import { Nav }  from "../nav/Nav";
 import Footer from "../footer/Footer";
+import { useWallet } from "../../../hooks/useWallet";
 
-interface LayoutProps{
-    credits: number;
-}
 
-export function Layout({credits}: LayoutProps) {
+
+export function Layout() {
+    const { credits } = useWallet();
     return(
         <>
             <header className="global-header">
