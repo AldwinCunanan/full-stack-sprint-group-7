@@ -1,3 +1,13 @@
+
+const racerImages = import.meta.glob(
+    "./racerimages/*.{avif,png,jpg,jpeg,webp}",
+    {
+        eager: true,
+        query: "?url",
+        import: "default"
+    }
+) as Record<string, string>;
+
 export const racers = [
     {
         name: "Kimi Antonelli",
@@ -8,7 +18,7 @@ export const racers = [
         season_points: 292,
         grand_prix_races: 14,
         grand_prix_wins: 8,
-        image: "/kimi_antonelli.avif"
+        image: racerImages["./racerimages/kimi_antonelli.avif"]
     },
     {
         name: "George Russell",
@@ -19,7 +29,7 @@ export const racers = [
         season_points: 211,
         grand_prix_races: 14,
         grand_prix_wins: 2,
-        image: "/george_russell.avif"
+        image:  racerImages["./racerimages/george_russell.avif"]
     },
     {
         name: "Lewis Hamilton",
@@ -30,7 +40,7 @@ export const racers = [
         season_points: 191,
         grand_prix_races: 14,
         grand_prix_wins: 1,
-        image: "/lewis_hamilton.avif"
+        image:  racerImages["./racerimages/lewis_hamilton.avif"]
     },
     {
         name: "Lando Norris",
@@ -41,7 +51,7 @@ export const racers = [
         season_points: 186,
         grand_prix_races: 14,
         grand_prix_wins: 2,
-        image: "/lando_norris.avif"
+        image:  racerImages["./racerimages/lando_norris.avif"]
     },
     {
         name: "Charles Leclerc",
@@ -52,7 +62,7 @@ export const racers = [
         season_points: 167,
         grand_prix_races: 14,
         grand_prix_wins: 1,
-        image: "/charles_leclerc.avif"
+        image:  racerImages["./racerimages/charles_leclerc.avif"]
     },
     {
         name: "Max Verstappen",
@@ -63,7 +73,7 @@ export const racers = [
         season_points: 145,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/max_verstappen.avif"
+        image:  racerImages["./racerimages/max_verstappen.avif"]
     },
     {
         name: "Oscar Piastri",
@@ -74,7 +84,7 @@ export const racers = [
         season_points: 120,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/oscar_piastri.avif"
+        image:  racerImages["./racerimages/oscar_piastri.avif"]
     },
     {
         name: "Isack Hadjar",
@@ -85,7 +95,7 @@ export const racers = [
         season_points: 71,
         grand_prix_races: 11,
         grand_prix_wins: 0,
-        image: "/isack_hadjar.avif"
+        image:  racerImages["./racerimages/isack_hadjar.avif"]
     },
     {
         name: "Liam Lawson",
@@ -96,7 +106,7 @@ export const racers = [
         season_points: 59,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/liam_lawson.avif"
+        image:  racerImages["./racerimages/liam_lawson.avif"]
     },
     {
         name: "Pierre Gasly",
@@ -107,7 +117,7 @@ export const racers = [
         season_points: 41,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/pierre_gasly.avif"
+        image:  racerImages["./racerimages/pierre_gasly.avif"]
     },
     {
         name: "Arvin Lindblad",
@@ -118,7 +128,7 @@ export const racers = [
         season_points: 31,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/arvin_lindblad.avif"
+        image:  racerImages["./racerimages/arvin_lindblad.avif"]
     },
     {
         name: "Franco Colapinto",
@@ -129,6 +139,6 @@ export const racers = [
         season_points: 27,
         grand_prix_races: 14,
         grand_prix_wins: 0,
-        image: "/franco_colapinto.avif"
+        image:  racerImages["./racerimages/franco_colapinto.avif"]
     }
 ];
