@@ -36,7 +36,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Layout credits={credits}/>}> 
           <Route index element={<UserProfile credits={credits} setCredits={setCredits} 
-                                            transactions={transactions} setTransactions={setTransactions}/>} />
+                                transactions={transactions} setTransactions={setTransactions}/>} />
           <Route path="racers" element={
             <Racers 
               teamsheets={teamsheets}
