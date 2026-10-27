@@ -6,12 +6,8 @@ import Racers, { Teamsheet } from "./components/pages/Racers/Racers";
 import Betting from "./components/pages/Betting/Betting";
 import { Transaction } from "./components/pages/Userprofile/UserProfile";
 import Races from "./components/pages/Races/Races";
-import { races } from "./backend/data/racesData";
-import type { Race } from "./backend/types/races";
-
 
 function App() {
-  const [raceData, setRaceData] = useState<Race[]>(races)
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
   const [credits, setCredits] = useState<number>(1000);
   const [transactions, setTransactions] = useState<Transaction[]>([{
@@ -42,7 +38,7 @@ function App() {
               teamsheets={teamsheets}
               addTeamsheet={addTeamsheet}
               deleteTeamsheet={deleteTeamsheet}/>} />
-          <Route path="tracks" element={<Races races={raceData} updateRaces={setRaceData}/>} />
+          <Route path="tracks" element={<Races />} />
           <Route path="bets" element={
             <Betting
              teamsheets={teamsheets}
