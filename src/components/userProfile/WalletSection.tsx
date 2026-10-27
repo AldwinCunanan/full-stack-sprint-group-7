@@ -1,3 +1,9 @@
+/**
+ * Sprint 3 Architectural Note:
+ * Part of the View layer. Integrates the `useWallet` hook state to coordinate 
+ * wallet operations (deposits, withdrawals) and transaction history, keeping 
+ * validation logic in `walletService` and storage in `transactionRepo`.
+ */
 import { useState } from "react";
 import { WalletForm } from "./WalletForm";
 import { TransactionList } from "./TransactionList";

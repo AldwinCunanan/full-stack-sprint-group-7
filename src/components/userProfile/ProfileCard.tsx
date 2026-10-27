@@ -1,3 +1,8 @@
+/**
+ * Architectural Note:
+ * Presentational component (View layer) that receives profile information and live credit state
+ * via props to render user details. Keeps UI logic purely declarative.
+ */
 import { ProfileData } from "../../types/userProfile";
 
 interface ProfileCardProps {

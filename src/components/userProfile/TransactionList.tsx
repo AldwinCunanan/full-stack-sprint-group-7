@@ -1,3 +1,9 @@
+/**
+ * Sprint 3 Architectural Note:
+ * Presentational component (View layer) that renders the user's transaction history.
+ * It receives transactions and callback handlers via props, remaining completely 
+ * decoupled from state management, business rules, or data access.
+ */
 import { Transaction } from "../../types/userProfile";
 
 interface TransactionListProps {

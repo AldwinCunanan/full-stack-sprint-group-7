@@ -1,3 +1,8 @@
+/**
+ * Sprint 3 Architectural Note:
+ * Presentational Form component (View layer). Captures user input for deposits or 
+ * withdrawals and safely delegates execution upward to the hook/service layers.
+ */
 import React, { useState } from "react";
 
 interface WalletFormProps {
