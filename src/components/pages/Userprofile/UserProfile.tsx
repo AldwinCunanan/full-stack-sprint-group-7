@@ -1,27 +1,6 @@
 import React, { useState } from 'react';
 import "./UserProfile.css"
-interface ProfileData {
-    id: number;
-    username: string;
-    dob: string;
-    favoriteRacer: string;
-    favoriteTrack: string;
-    credits: number;
-    totalProfit: number;
-    bettingStats: {
-        activeBets: number;
-        wonBets: number;
-        totalBets: number;
-    }
-}
-
-
-interface UserProfileProps {
-    credits: number;
-    setCredits: React.Dispatch<React.SetStateAction<number>>;
-    transactions: Transaction[];
-    setTransactions: React.Dispatch<React.SetStateAction<Transaction[]>>;
-}
+import { Transaction, ProfileData, UserProfileProps } from '../../../types/wallet';
 
 const mockProfile: ProfileData[] = [{
     id: 1,
