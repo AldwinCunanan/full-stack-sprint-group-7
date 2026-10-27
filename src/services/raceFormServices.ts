@@ -35,14 +35,14 @@ export const raceFormService = {
             messages.push("Please choose a location!")
         }
 
-        //name & location must have more than 3 characters
-        if (race.name.trim().length < 3 || race.location.trim().length < 3 ){
-            messages.push("Text fields need at least three characters!");
+        //name must have more than 3 characters
+        if (race.name.trim().length < 3){
+            messages.push("Name field needs at least three characters!");
         }
 
-        //name & location must be less than 30 characters
-        if (race.name.trim().length > 30 || race.location.trim().length > 30){
-            messages.push("Text fields cannot exceed 30 characters!");
+        //name must be less than 30 characters
+        if (race.name.trim().length > 30){
+            messages.push("Name field cannot exceed 30 characters!");
         }
 
         const trackInKm = Number(race.trackLength);
