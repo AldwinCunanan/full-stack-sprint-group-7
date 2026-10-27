@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import "./UserProfile.css"
-import { Transaction, ProfileData, UserProfileProps } from '../../../types/wallet';
+import { Transaction, ProfileData, UserProfileProps } from '../../../types/userProfile';
 
 const mockProfile: ProfileData[] = [{
     id: 1,

@@ -4,7 +4,7 @@ import { Layout } from "./components/common/layout/Layout";
 import UserProfile from "./components/pages/Userprofile/UserProfile";
 import Racers, { Teamsheet } from "./components/pages/Racers/Racers";
 import Betting from "./components/pages/Betting/Betting";
-import { Transaction } from "./types/wallet"; 
+import { Transaction } from "./types/userProfile"; 
 import Races from "./components/pages/Races/Races";
 import { races } from "./backend/data/racesData";
 import type { Race } from "./backend/types/races";
