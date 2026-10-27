@@ -7,9 +7,11 @@ import Betting from "./components/pages/Betting/Betting";
 import Races from "./components/pages/Races/Races";
 import { races } from "./backend/data/racesData";
 import type { Race } from "./backend/types/races";
+import { useWallet } from "./hooks/useWallet";
 
 
 function App() {
+  const wallet = useWallet();
   const [raceData, setRaceData] = useState<Race[]>(races)
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
   const addTeamsheet = (newTeamsheet: Teamsheet) => {
@@ -27,8 +29,8 @@ function App() {
   };
   return (
       <Routes>
-        <Route path="/" element={<Layout/>}> 
-          <Route index element={<UserProfile />} />
+        <Route path="/" element={<Layout credits={wallet.credits}/>}> 
+          <Route index element={<UserProfile wallet={wallet}/>} />
           <Route path="racers" element={
             <Racers 
               teamsheets={teamsheets}

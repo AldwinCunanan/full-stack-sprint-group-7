@@ -4,9 +4,11 @@ import { WalletSection } from "../../../components/userProfile/WalletSection";
 import { sampleProfiles } from "../../../data/sampleUserProfile";
 import "./UserProfile.css";
 
-export function UserProfile() {
-  const wallet = useWallet();
+interface UserProfileProps {
+  wallet: ReturnType<typeof useWallet>;
+}
 
+export function UserProfile({ wallet }: UserProfileProps) {
   return (
     <section className="user-profile-page">
       <h2>User Profile & Wallet</h2>
