@@ -3,7 +3,7 @@ import { Teamsheet } from "../types/teamsheet_type";
 
 let teamsheets: Teamsheet[] = [];
 
-export const employeeTeamsheet = {
+export const racerRepo = {
     createTeamsheet(
         id: string,
         teamName: string,
