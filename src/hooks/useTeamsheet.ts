@@ -3,6 +3,14 @@ import { Racer } from "../types/racer_type";
 import { Teamsheet } from "../types/teamsheet_type";
 import { racerService } from "../services/racerService"
 
+// What does this hook do?
+// - keeps track of warning messages using useState
+// - calles racerService to try to make a new teamsheet
+// - should validation fail, displays a warning message 
+// - coordinates overall teamsheet creeation process
+// - if it succeeds it passes the new teamsheet to App.tsx with a callback
+// - also has a functions to request deletion 
+
 export function useTeamsheets(
     addTeamsheet: (teamsheet: Teamsheet) => void,
     deleteTeamsheet: (id: string) => void  

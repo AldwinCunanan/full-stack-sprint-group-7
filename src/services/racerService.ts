@@ -2,6 +2,12 @@ import { Teamsheet } from "../types/teamsheet_type";
 import { racerRepo } from "../repositories/racerRepo";
 import { Racer } from "../types/racer_type";
 
+// What does this service do?
+// - this checks the rules that teamsheet creation must follow
+// - the team name must be three characters long after trim
+// - user must pick at least one racer
+// - the betting total must be greater than 0$
+
 type racerResult =
     | { success: false; message: string }
     | { success: true; teamsheet: Teamsheet };
