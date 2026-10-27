@@ -3,11 +3,11 @@ import { Nav }  from "../nav/Nav";
 import Footer from "../footer/Footer";
 import logo from "../../../data/logo.svg";
 
-interface LayoutProps{
-    credits: number;
+interface LayoutProps {
+  credits: number;
 }
 
-export function Layout({credits}: LayoutProps) {
+export function Layout({ credits }: LayoutProps) {
     return(
         <>
             <header className="global-header">
