@@ -5,6 +5,10 @@ import RaceForm from "../../Races/RaceForm"
 import DeleteRace from "../../Races/DeleteRace"
 import { raceFormService } from "../../../services/raceFormServices"
 
+/*
+* Calls raceFormService.getRaces when the page loads. The service retrieves the races through the repository,
+* and the page stores them in React state for display. This keeps data access outside the page component.
+*/
 function Races(){
     const [races, updateRaces] = useState<Race[]>([]);
 

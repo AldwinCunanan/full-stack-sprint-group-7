@@ -19,6 +19,12 @@ const locations = [
     { name: "Abu Dhabi", image: "abu_dhabi.png" },
 ];
 
+/*
+* Uses useFormInput to manage field values and useFormSubmission to handle submission errors.
+* It calls raceFormService.addRace to validate the input, which then calls racesRepo.
+* createRace to store the race. This keeps form state, validation, and storage in separate places.
+* @param props.updateRaces Updates the page's race list after a race is created.
+*/
 function RaceForm({updateRaces}: raceFormProps){
     const raceName = useFormInput();
     const locationName = useFormInput();

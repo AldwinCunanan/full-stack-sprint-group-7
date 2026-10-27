@@ -7,6 +7,13 @@ type deleteRaceProps = {
     updateRaces: React.Dispatch<React.SetStateAction<Race[]>>
 }
 
+/*
+ * Calls raceFormService.deleteRace to check and delete a race through
+ * racesRepo. Updates the displayed race list on success or shows an error.
+ *
+ * @param props.raceId The ID of the race to delete.
+ * @param props.updateRaces Updates the page's race list after deletion.
+ */
 function DeleteRace({raceId, updateRaces}: deleteRaceProps){
     const [error, setError] = useState("")
 
