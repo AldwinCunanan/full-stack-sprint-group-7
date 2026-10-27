@@ -1,21 +1,40 @@
-import { Race } from "../../backend/types/races"
+import { useState } from "react"
+import { Race } from "../../types/races"
+import { raceFormService } from "../../services/raceFormServices"
 
 type deleteRaceProps = {
-    name: string,
+    raceId: string,
     updateRaces: React.Dispatch<React.SetStateAction<Race[]>>
 }
 
-function DeleteRace({name, updateRaces}: deleteRaceProps){
+function DeleteRace({raceId, updateRaces}: deleteRaceProps){
+    const [error, setError] = useState("")
 
-    const handleDelete = () => {
-        updateRaces(prev => prev.filter(r => r.name!== name))
-    }
+    const handleDelete = async () => {
+        setError("")
+
+        try{
+            await raceFormService.deleteRace(raceId)
+            updateRaces(prev => prev.filter(r => r.id!== raceId))
+        } catch (error) {
+            if (error instanceof Error){
+                setError(error.message)
+            }
+        }
+    };
 
     return(
-        <button className="delete-race-btn"
-        onClick={handleDelete}>
-            Delete
-        </button>
+        <>
+            <button
+                type="button"
+                className="delete-race-btn"
+                onClick={handleDelete}
+            >
+                Delete
+            </button>
+
+            {error && <p role="alert"> {error} </p>}
+        </>
     )
 }
 
