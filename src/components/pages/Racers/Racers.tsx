@@ -2,12 +2,13 @@ import React, { useState } from 'react';
 import { racers } from '../../../data/racers';
 import { Racer } from '../../../types/racer_type';
 import { Teamsheet } from '../../../types/teamsheet_type';
+import { useTeamsheets } from '../../../hooks/useTeamsheet';
+import { AddTeamsheetProps } from '../../../types/teamsheet_prop';
 
-export function AddTeamsheet({addTeamsheet}: {addTeamsheet: (teamsheet: Teamsheet) => void;}) {
+export function AddTeamsheet({createTeamsheet, warning}: AddTeamsheetProps) {
     const [teamName, setTeamName] = useState("");
     const [selectedRacers, setSelectedRacers] = useState<Racer[]>([]);
     const [bettingTotal, setBettingTotal] = useState(0);
-    const [warning, setWarning] = useState("");
 
     const toggleRacer = (racer: Racer) => {
         setSelectedRacers(prev => {
@@ -28,39 +29,20 @@ export function AddTeamsheet({addTeamsheet}: {addTeamsheet: (teamsheet: Teamshee
     const handleSubmit = (e: React.FormEvent) => {
         e.preventDefault();
 
-        if (teamName.trim().length < 3) {
-            setWarning(
-                "Team name must be at least 3 characters long"
-            );
+        const success = createTeamsheet(
+            teamName,
+            selectedRacers,
+            bettingTotal
+        );
+
+        if (!success) {
             return;
         }
 
-        if (selectedRacers.length === 0) {
-            setWarning(
-                "You must select at least one racer"
-            );
-            return;
-        }
-
-        if (bettingTotal <= 0) {
-            setWarning(
-                "Betting total must be greater than $0"
-            );
-            return;
-        }
-
-        const newTeamsheet: Teamsheet = {
-            id: crypto.randomUUID(),
-            teamName: teamName.trim(),
-            racers: selectedRacers,
-            bettingTotal: bettingTotal
-        };
-
-        addTeamsheet(newTeamsheet);
         setTeamName("");
         setSelectedRacers([]);
         setBettingTotal(0);
-        setWarning("");
+
     };
 
     return (
@@ -160,22 +142,27 @@ export function Racers({
 }: {
     teamsheets: Teamsheet[];
     addTeamsheet: (teamsheet: Teamsheet) => void;
-    deleteTeamsheet: (id: string) => void;
+    deleteTeamsheet: (id: string) => void; 
 }) {
+    const {
+        warning,
+        createTeamsheet,
+        removeTeamsheet
+    } = useTeamsheets(addTeamsheet, deleteTeamsheet);
+
     return (
         <main>
             <AddTeamsheet
-                addTeamsheet={addTeamsheet}
+                createTeamsheet={createTeamsheet}
+                warning={warning}
             />
 
             <TeamsheetList
                 teamsheets={teamsheets}
-                deleteTeamsheet={deleteTeamsheet}
+                deleteTeamsheet={removeTeamsheet}
             />
 
-            <RacerList
-                racers={racers}
-            />
+            <RacerList racers={racers} />
         </main>
     );
 }
