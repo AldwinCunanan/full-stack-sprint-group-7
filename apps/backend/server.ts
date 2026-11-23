@@ -1,5 +1,5 @@
-import app from "./app";
-import { Server } from "http";
+import app from "./app.ts";
+import type { Server } from "node:http";
 
 const PORT: string | number = process.env.PORT ?? 3000;
 

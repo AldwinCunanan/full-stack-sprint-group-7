@@ -27,9 +27,9 @@ app.use((req, _res, next) => {
   next();
 });
 
-app.use("/api/user");
-app.use("/api/races");
-app.use("/api/racers");
+// app.use("/api/user", userRoutes);
+// app.use("/api/races", racesRoutes);
+// app.use("/api/racers", racerRoutes);
  
 // Central error handler
 app.use((
