@@ -1,9 +1,8 @@
-import { type Race } from "../../types/races"
-import { Guid } from "guid-typescript";
+import type { Race } from "../../../../shared/types/races";
 
 export const races: Race[] = [
     {
-        id: Guid.create().toString(),
+        id: "4aae760d-d7a8-4d33-8c84-bb2739fbaba0",
         name: "Canadian Gradn Prix",
         location: "Montreal",
         trackLength: "4.6km",
@@ -16,7 +15,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "fc76652b-c31f-4d46-8d96-0d30ca68edfd",
         name: "Bahrain Grand Prix",
         location: "Sepang",
         trackLength: "5.5km",
@@ -27,7 +26,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "d67e3307-ab28-43f1-b150-52cd9b6cd398",
         name: "Singapore Grand Prix",
         location: "Singapore",
         trackLength: "5.5km",
@@ -38,7 +37,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "5af42568-ee3a-4a07-b11f-d80c79fd970d",
         name: "USA Grand Prix",
         location: "Austin",
         trackLength: "5.5km",
@@ -49,7 +48,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "e7f86105-af53-4520-a4f6-93b88edb10cf",
         name: "Mexican Grand Prix",
         location: "Mexico City",
         trackLength: "5.5km",
@@ -60,7 +59,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "67af0711-64f3-4e96-9b34-792853393af8",
         name: "São Paulo Grand Prix",
         location: "São Paulo",
         trackLength: "5.5km",
@@ -71,7 +70,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "db7548c3-ba9e-4c97-84db-3fab0d8e57a1",
         name: "Qatar Grand Prix",
         location: "Lusail",
         trackLength: "5.5km",
@@ -82,7 +81,7 @@ export const races: Race[] = [
         ]
     },
     {
-        id: Guid.create().toString(),
+        id: "ecbbbaea-6691-4343-a0dd-a36a9759762d",
         name: "Abu Dhabi Grand Prix",
         location: "Abu Dhabi",
         trackLength: "5.5km",

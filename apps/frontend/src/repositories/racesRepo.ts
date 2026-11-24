@@ -1,5 +1,5 @@
 import { Race, RaceInput } from "../types/races"
-import { races } from "../backend/data/racesData"
+import { races } from "../../../backend/src/data/RacesData"
 import { Guid } from "guid-typescript";
 
 
