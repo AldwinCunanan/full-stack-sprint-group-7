@@ -1,4 +1,4 @@
-import { ProfileData } from "../types/userProfile";
+import { ProfileData } from "../../../../shared/types/userProfile"; 
 
 export const sampleProfiles: ProfileData[] = [
   {
