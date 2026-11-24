@@ -11,3 +11,44 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+enum TransactionType {
+  Deposit
+  Withdrawal
+}
+
+model User {
+  id            Int           @id @default(autoincrement())
+  username      String        @unique
+  dob           DateTime?
+  favoriteRacer String?
+  favoriteTrack String?
+  credits       Decimal       @default(0.00) @db.Decimal(10, 2)
+  totalProfit   Decimal       @default(0.00) @db.Decimal(10, 2)
+
+  transactions  Transaction[]
+  teamsheets    Teamsheet[]
+}
+
+model Transaction {
+  id     Int             @id @default(autoincrement())
+  type   TransactionType
+  amount Decimal         @db.Decimal(10, 2)
+  date   DateTime        @default(now())
+
+  userId Int
+  user   User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
+
+model Teamsheet {
+  id           String  @id @default(cuid())
+  teamName     String
+  bettingTotal Decimal 
+
+  userId       Int
+  user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@index([userId])
+}
