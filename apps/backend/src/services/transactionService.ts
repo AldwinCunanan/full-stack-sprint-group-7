@@ -112,44 +112,11 @@ export const walletService = {
 
   
    // Delete a transaction belonging to a user.
-
-  async deleteTransaction(
-    userId: number,
-    id: number
-  ): Promise<void> {
-
-    await prisma.$transaction(async (tx) => {
-
-      const transaction = await tx.transaction.findFirst({
-        where: {
-          id,
-          userId
-        }
-      });
-
-      if (!transaction) {
-        throw new Error("Transaction not found.");
-      }
-
-      const amount = transaction.amount.toNumber();
-
-      const adjustment =
-        transaction.type === "Deposit" ? -amount : amount;
-
-      await tx.user.update({
-        where: { id: userId },
-        data: {
-          credits: {
-            increment: adjustment.toFixed(2)
-          }
-        }
-      });
-
-      await tx.transaction.delete({
-        where: { id }
-      });
-    });
-  },
+  async deleteTransaction(id: number) {
+  return await prisma.transaction.delete({
+    where: { id }
+  });
+},
 
   // fetch wallet data that belongs to user
   async fetchWallet(userId: number) {

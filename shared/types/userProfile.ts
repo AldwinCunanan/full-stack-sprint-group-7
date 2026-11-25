@@ -26,3 +26,8 @@ export interface ProfileData {
         totalBets: number;
     }
 }
+
+export interface Wallet {
+  credits: number;
+  transactions: Transaction[];
+}

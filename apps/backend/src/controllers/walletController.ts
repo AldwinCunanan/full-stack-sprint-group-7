@@ -130,28 +130,15 @@ export const walletController = {
     next: NextFunction
   ) {
     try {
-      const userId = Number(req.params.userId);
-      const transactionId = Number(req.params.id);
+    const id = Number(req.params.id);
 
-      if (
-        !Number.isInteger(userId) ||
-        userId <= 0 ||
-        !Number.isInteger(transactionId) ||
-        transactionId <= 0
-      ) {
-        return res.status(400).json({
-          message: "Invalid user or transaction ID."
-        });
-      }
+    await walletService.deleteTransaction(id);
 
-      await walletService.deleteTransaction(userId, transactionId);
-
-      return res.status(200).json({
-        message: "Transaction deleted successfully."
-      });
-
-    } catch (error) {
-      next(error);
-    }
+    return res.status(200).json({
+      message: "Transaction deleted successfully."
+    });
+  } catch (error) {
+    next(error);
+  }
   }
 };
