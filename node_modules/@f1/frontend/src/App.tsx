@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/common/layout/Layout";
 import UserProfile from "./components/pages/Userprofile/UserProfile";
@@ -8,10 +8,24 @@ import Betting from "./components/pages/Betting/Betting";
 import Races from "./components/pages/Races/Races";
 import { useWallet } from "./hooks/useWallet";
 import { useTeamsheets } from "./hooks/useTeamsheet";
+import { teamsheetService } from "./services/teamsheetService";
 
 function App() {
   const wallet = useWallet();
   const [teamsheets, setTeamsheets] = useState<Teamsheet[]>([]);
+
+  useEffect(() => {
+    async function loadTeamsheets() {
+      try {
+        const data = await teamsheetService.getAll();
+        setTeamsheets(data);
+      } catch (error) {
+        console.error("Failed to load teamsheets", error);
+      }
+    }
+
+    loadTeamsheets();
+  }, []);
 
   const {
       warning,
