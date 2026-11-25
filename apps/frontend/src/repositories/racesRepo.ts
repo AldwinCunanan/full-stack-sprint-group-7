@@ -1,4 +1,4 @@
-import { Race, RaceInput } from "../types/races"
+import { Race, RaceInput } from "../../../../shared/types/races"
 import { races } from "../../../backend/src/data/RacesData"
 import { Guid } from "guid-typescript";
 

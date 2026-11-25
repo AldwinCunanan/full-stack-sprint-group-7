@@ -1,5 +1,5 @@
 import { racesRepo } from "../repositories/racesRepo";
-import type { Race, RaceInput } from "../types/races";
+import type { Race, RaceInput } from "../../../../shared/types/races";
 
 export const raceFormService = {
     async getRaces(): Promise<Race[]> {

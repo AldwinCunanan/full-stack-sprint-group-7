@@ -1,9 +1,9 @@
-import "./races.css"
-import { useState, useEffect } from "react"
-import { Race } from "../../../types/races"
-import RaceForm from "../../Races/RaceForm"
-import DeleteRace from "../../Races/DeleteRace"
-import { raceFormService } from "../../../services/raceFormServices"
+import "./races.css";
+import { useState, useEffect } from "react";
+import { Race } from "../../../../../../shared/types/races";
+import RaceForm from "../../Races/RaceForm";
+import DeleteRace from "../../Races/DeleteRace";
+import { raceFormService } from "../../../services/raceFormServices";
 
 /*
 * Calls raceFormService.getRaces when the page loads. The service retrieves the races through the repository,
