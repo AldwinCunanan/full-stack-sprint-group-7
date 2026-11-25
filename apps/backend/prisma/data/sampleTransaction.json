@@ -1,0 +1,12 @@
+[
+  { "id": 1, "type": "Deposit", "amount": 150.0, "date": "2026-05-01" },
+  { "id": 2, "type": "Deposit", "amount": 50.0, "date": "2026-05-03" },
+  { "id": 3, "type": "Withdrawal", "amount": 20.0, "date": "2026-05-04" },
+  { "id": 4, "type": "Deposit", "amount": 100.0, "date": "2026-05-05" },
+  { "id": 5, "type": "Withdrawal", "amount": 45.0, "date": "2026-05-08" },
+  { "id": 6, "type": "Deposit", "amount": 200.0, "date": "2026-05-10" },
+  { "id": 7, "type": "Withdrawal", "amount": 75.0, "date": "2026-05-12" },
+  { "id": 8, "type": "Deposit", "amount": 50.0, "date": "2026-05-15" },
+  { "id": 9, "type": "Withdrawal", "amount": 10.0, "date": "2026-05-18" },
+  { "id": 10, "type": "Deposit", "amount": 300.0, "date": "2026-05-20" }
+]

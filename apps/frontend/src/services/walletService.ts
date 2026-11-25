@@ -6,43 +6,55 @@
  * Currently interacts with pre-loaded mock test data, keeping data storage details 
  * completely decoupled from business logic and React state.
  */
+
+
 import { transactionRepo } from "../repositories/transactionRepo";
-import { Transaction } from "../types/userProfile";
+import type { Transaction, Wallet } from "../../../../shared/types/userProfile";
 
 export const walletService = {
-  
-  validateAmount(value: string, currentBalance: number, isWithdrawal: boolean): string {
+
+  // Validate deposit and withdrawal amounts
+  validateAmount(
+    value: string,
+    currentBalance: number,
+    isWithdrawal: boolean
+  ): string {
     const num = Number(value);
-    if (!value || isNaN(num) || num <= 0) {
+
+    if (!value.trim() || !Number.isFinite(num) || num <= 0) {
       return "Please enter a valid amount greater than $0.";
     }
+
     if (isWithdrawal && num > currentBalance) {
       return "Insufficient funds! You cannot withdraw more than your available credit.";
     }
+
     return "";
   },
 
-  calculateBalance(transactions: Transaction[]): number {
-    return transactions.reduce((acc, tx) => {
-      return tx.type === "Deposit" ? acc + tx.amount : acc - tx.amount;
-    }, 0);
+  // Fetch wallet balance and transaction history from backend
+  async fetchWallet(): Promise<Wallet> {
+    return await transactionRepo.getWallet();
   },
 
+  // Fetch transaction history separately if needed
   async fetchTransactions(): Promise<Transaction[]> {
     return await transactionRepo.getAll();
   },
 
-  async addTransaction(type: "Deposit" | "Withdrawal", amount: number): Promise<Transaction> {
-    const newTx: Transaction = {
-      id: Date.now(), 
+  // Add deposit or withdrawal through backend
+  async addTransaction(
+    type: "Deposit" | "Withdrawal",
+    amount: number
+  ): Promise<Transaction> {
+    return await transactionRepo.add({
       type,
-      amount,
-      date: new Date().toLocaleDateString(),
-    };
-    return await transactionRepo.add(newTx);
+      amount
+    });
   },
 
+  // Delete transaction through backend
   async deleteTransaction(id: number): Promise<void> {
     await transactionRepo.delete(id);
-  },
+  }
 };

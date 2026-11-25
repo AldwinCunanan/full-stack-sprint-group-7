@@ -4,25 +4,51 @@
  * wallet operations (deposits, withdrawals) and transaction history, keeping 
  * validation logic in `walletService` and storage in `transactionRepo`.
  */
+
 import { useState } from "react";
 import { WalletForm } from "./WalletForm";
 import { TransactionList } from "./TransactionList";
+import type { useWallet } from "../../hooks/useWallet";
 
-// Type definition matching the return value of your useWallet hook
 interface WalletSectionProps {
-  wallet: ReturnType<typeof import("../../hooks/useWallet").useWallet>;
+  wallet: ReturnType<typeof useWallet>;
 }
 
 export function WalletSection({ wallet }: WalletSectionProps) {
-  const { transactions, errorMsg, deposit, withdraw, removeTransaction } = wallet;
+  const {
+    credits,
+    transactions,
+    errorMsg,
+    loading,
+    deposit,
+    withdraw,
+    removeTransaction
+  } = wallet;
+
   const [activeAction, setActiveAction] = useState<"deposit" | "withdraw" | null>(null);
 
   return (
     <div className="wallet-section-container">
+
+      {/* Current Wallet Balance */}
+      <div className="wallet-balance">
+        <h3>Available Credits</h3>
+        {loading ? (
+          <p>Loading balance...</p>
+        ) : (
+          <p>${credits.toFixed(2)}</p>
+        )}
+      </div>
+
       {/* Wallet Action Trigger Buttons */}
       <div className="wallet-action">
-        <button onClick={() => setActiveAction("deposit")}>Deposit Funds</button>
-        <button onClick={() => setActiveAction("withdraw")}>Withdraw Funds</button>
+        <button onClick={() => setActiveAction("deposit")}>
+          Deposit Funds
+        </button>
+
+        <button onClick={() => setActiveAction("withdraw")}>
+          Withdraw Funds
+        </button>
       </div>
 
       {/* Wallet Action Form */}
@@ -47,11 +73,17 @@ export function WalletSection({ wallet }: WalletSectionProps) {
       {/* Transaction History Section */}
       <div className="transaction-history">
         <h3>Transaction History</h3>
-        <TransactionList 
-          transactions={transactions} 
-          onRemove={removeTransaction} 
-        />
+
+        {loading ? (
+          <p>Loading transactions...</p>
+        ) : (
+          <TransactionList
+            transactions={transactions}
+            onRemove={removeTransaction}
+          />
+        )}
       </div>
+
     </div>
   );
 }

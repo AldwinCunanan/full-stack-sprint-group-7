@@ -4,16 +4,34 @@
  * It receives transactions and callback handlers via props, remaining completely 
  * decoupled from state management, business rules, or data access.
  */
-import { Transaction } from "../../types/userProfile";
+import { useState } from "react";
+import type { Transaction } from "../../../../../shared/types/userProfile";
 
 interface TransactionListProps {
   transactions: Transaction[];
-  onRemove: (id: number) => void;
+  onRemove: (id: number) => Promise<void>;
 }
 
-export function TransactionList({ transactions, onRemove }: TransactionListProps) {
+export function TransactionList({
+  transactions,
+  onRemove
+}: TransactionListProps) {
+  const [deletingId, setDeletingId] = useState<number | null>(null);
+
+  const handleRemove = async (id: number) => {
+    if (deletingId !== null) return;
+
+    setDeletingId(id);
+
+    try {
+      await onRemove(id);
+    } finally {
+      setDeletingId(null);
+    }
+  };
+
   if (transactions.length === 0) {
-    return <p>No transaction logged.</p>;
+    return <p>No transactions logged.</p>;
   }
 
   return (
@@ -23,8 +41,13 @@ export function TransactionList({ transactions, onRemove }: TransactionListProps
           <span>
             {tx.date} — <strong>{tx.type}</strong>: ${tx.amount.toFixed(2)}
           </span>
-          <button onClick={() => onRemove(tx.id)} className="remove-btn">
-            Clear Log
+
+          <button
+            onClick={() => handleRemove(tx.id)}
+            className="remove-btn"
+            disabled={deletingId !== null}
+          >
+            {deletingId === tx.id ? "Deleting..." : "Clear Log"}
           </button>
         </li>
       ))}
