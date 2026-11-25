@@ -3,7 +3,7 @@ import { Routes, Route } from "react-router-dom";
 import { Layout } from "./components/common/layout/Layout";
 import UserProfile from "./components/pages/Userprofile/UserProfile";
 import Racers from "./components/pages/Racers/Racers";
-import { Teamsheet } from "./types/teamsheet_type";
+import type { Teamsheet } from "../../../shared/types/teamsheet_type";
 import Betting from "./components/pages/Betting/Betting";
 import Races from "./components/pages/Races/Races";
 import { useWallet } from "./hooks/useWallet";

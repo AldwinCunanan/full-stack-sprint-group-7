@@ -1,46 +1,52 @@
 import { useState } from "react";
-import { Racer } from "../types/racer_type";
-import { Teamsheet } from "../types/teamsheet_type";
-import { racerService } from "../services/racerService"
-
-// What does this hook do?
-// - keeps track of warning messages using useState
-// - calles racerService to try to make a new teamsheet
-// - should validation fail, displays a warning message 
-// - coordinates overall teamsheet creeation process
-// - if it succeeds it passes the new teamsheet to App.tsx with a callback
-// - also has a functions to request deletion 
+import type { Racer } from "../../../../shared/types/racer_type";
+import type { Teamsheet } from "../../../../shared/types/teamsheet_type";
+import { teamsheetService } from "../services/teamsheetService";
 
 export function useTeamsheets(
-    addTeamsheet: (teamsheet: Teamsheet) => void,
-    deleteTeamsheet: (id: string) => void  
+    setTeamsheets: (teamsheets: Teamsheet[]) => void,
 ) {
     const [warning, setWarning] = useState("");
+        async function createTeamsheet(
+            teamName: string,
+            selectedRacers: Racer[],
+            bettingTotal: number
+        ): Promise<boolean> {
 
-    function createTeamsheet(
-        teamName: string,
-        selectedRacers: Racer[],
-        bettingTotal: number
-    ): boolean {
-        const result = racerService.createTeamsheet(
-            crypto.randomUUID(),
-            teamName,
-            selectedRacers,
-            bettingTotal
-        );
+            try {
 
-        if (!result.success) {
-            setWarning(result.message);
+                const updatedTeamsheets = await teamsheetService.create(
+                    teamName,
+                    selectedRacers,
+                    bettingTotal
+                );
+
+                setTeamsheets(updatedTeamsheets);
+                setWarning("");
+                return true;
+        } catch (error) {
+            setWarning(
+                error instanceof Error
+                    ? error.message
+                    : "Failed to create teamsheet"
+            );
+
             return false;
         }
-
-        addTeamsheet(result.teamsheet);
-        setWarning("");
-        return true;
     }
 
-    function removeTeamsheet(id: string): void {
-        deleteTeamsheet(id);
+    async function removeTeamsheet(id: string): Promise<void> {
+        try {
+            const updatedTeamsheets = await teamsheetService.delete(id);
+            setTeamsheets(updatedTeamsheets);
+            setWarning("");
+        } catch (error) {
+            setWarning(
+                error instanceof Error
+                    ? error.message
+                    : "Failed to delete teamsheet"
+            );
+        }
     }
 
     return {
@@ -48,5 +54,6 @@ export function useTeamsheets(
         createTeamsheet,
         removeTeamsheet
     };
-} 
+}
+ 
 
