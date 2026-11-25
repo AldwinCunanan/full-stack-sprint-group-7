@@ -7,7 +7,7 @@
  * completely decoupled from business logic and React state.
  */
 import { transactionRepo } from "../repositories/transactionRepo";
-import { Transaction } from "../types/userProfile";
+import { Transaction } from "../../../../shared/types/userProfile";
 
 export const walletService = {
   
