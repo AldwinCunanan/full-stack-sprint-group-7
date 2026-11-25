@@ -20,4 +20,14 @@ export const racerController = {
 
     res.status(201).json(racer);
   },
+
+    async remove(req: Request, res: Response) {
+    const removed = await racerService.remove(
+      Number(req.params.id)
+    );
+
+    if (!removed) {
+      res.status(404).json({ error: "Teamsheet not found" });
+      return;
+    }
 };

@@ -23,8 +23,8 @@ racerRoutes.post(
   racerController.add
 );
 
-// racerRoutes.delete(
-//   "/:id",
-//   validateRacerId,
-//   racerController.remove
-// );
+racerRoutes.delete(
+  "/:id",
+  validateRacerId,
+  racerController.remove
+);

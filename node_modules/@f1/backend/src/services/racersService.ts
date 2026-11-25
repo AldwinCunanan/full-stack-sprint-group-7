@@ -1,4 +1,4 @@
-import type { Department } from "../../../../shared/types/department";
+import type { TeamsheetProp } from "../../../../shared/types/teamsheet_prop";
 import type {
     Racer,
     CreateRacerInput
@@ -7,11 +7,11 @@ import { racerRepo } from "../repositories/racersRepo";
 
 type RacerResult =
     | { success: false; message: string }
-    | { success: true; departments: Department[] };
+    | { success: true; departments: TeamsheetProp[] };
 
 export const racerService = {
 
-    async getAll(): Promise<Department[]> {
+    async getAll(): Promise<TeamsheetProp[]> {
         return racerRepo.getAll();
     },
 
@@ -27,20 +27,21 @@ export const racerService = {
         );
     },
     
-    async createRacer(
-        departmentName: string,
-        racer: Omit<Racer, "id">
+    async createTeamsheet(
+        teamName: string,
+        selectedRacer: Omit<Racer, "id">,
+        bettingTotal: number
     ): Promise<RacerResult> {
         const departments = await racerRepo.getAll();
 
-        const departmentExists = departments.some(
-            (d) => d.name === departmentName
+        const teamsheetExists = departments.some(
+            (d) => d.name === teamName
         );
 
-        if (!departmentExists) {
+        if (!teamsheetExists) {
             return {
                 success: false,
-                message: "Department does not exist"
+                message: "Teamsheet does not exist"
             };
         }
 
