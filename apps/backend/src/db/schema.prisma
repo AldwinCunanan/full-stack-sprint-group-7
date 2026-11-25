@@ -5,7 +5,7 @@
 
 generator client {
   provider = "prisma-client"
-  output   = "../src/generated/prisma"
+  output   = "../generated/prisma"
 }
 
 datasource db {
@@ -27,8 +27,8 @@ model Racer {
 }
 
 model Teamsheet {
-  id                 String     @id @id @default(cuid())
+  id                 String     @id @default(cuid())
   teamName           String
   bettingTotal       Float
-  racer              Racer[]
+  racers              Racer[]
 }
