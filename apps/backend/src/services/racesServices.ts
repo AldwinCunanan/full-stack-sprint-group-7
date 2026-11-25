@@ -1,0 +1,67 @@
+import { racesRepo } from "../repositories/racesRepo.ts";
+import type { RaceInput } from "../../../../shared/types/races";
+import type { Race } from "../../../../shared/types/races";
+
+export const raceFormService = {
+    async getRaces(): Promise<Race[]> {
+        return await racesRepo.getAllRaces();
+    },
+
+    async getRace(selectedId: string): Promise<Race | undefined> {
+        return racesRepo.getRace(selectedId);
+    },
+
+
+
+    async addRace(race: RaceInput): Promise<Race> {
+        //error messages
+        const messages: string[] = [];
+
+        //all text fields must be filled
+        if(!race.name.trim() || !race.location.trim() || !race.trackLength.trim()){
+            messages.push("Must have filled input fields!");
+        }
+
+        if(Number.isNaN(race.date.getTime())){
+            messages.push("Please select a valid race Date!");
+        }
+
+        //must have a location in text feild
+        if(!race.location.trim()){
+            messages.push("Please choose a location!")
+        }
+
+        //name must have more than 3 characters
+        if (race.name.trim().length < 3){
+            messages.push("Name field needs at least three characters!");
+        }
+
+        //name must be less than 30 characters
+        if (race.name.trim().length > 30){
+            messages.push("Name field cannot exceed 30 characters!");
+        }
+
+        const trackInKm = Number(race.trackLength);
+
+        if (!Number.isFinite(trackInKm) || trackInKm < 1 || trackInKm > 15){
+            messages.push("Track length must be between 1 and 15 km.");
+        } else if (!/^\d{1,2}(\.\d)?$/.test(race.trackLength)) {
+            messages.push("Track length can have at most one decimal place!");
+        }
+
+        //join all error messages and throw error
+        if(messages.length > 0){
+            throw new Error(messages.join(" "))
+        }
+
+        return racesRepo.createRace(race);
+    },
+
+    async deleteRace(raceId: string): Promise<boolean> {
+        if(!raceId.trim()){
+            throw new Error("A race ID is required!");
+        }
+
+        return racesRepo.deleteRace(raceId);
+    },
+}
