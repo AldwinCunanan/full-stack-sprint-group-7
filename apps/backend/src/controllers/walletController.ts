@@ -31,6 +31,22 @@ export const walletController = {
     }
   },
 
+  // GET: retrieve balance and transaction history
+  async getWallet(req: Request, res: Response, next: NextFunction) {
+  try {
+    const userId = Number(req.params.userId);
+
+    const wallet = await walletService.fetchWallet(userId);
+
+    return res.status(200).json({
+      message: "Wallet retrieved successfully.",
+      wallet
+    });
+  } catch (error) {
+    next(error);
+  }
+},
+
   // POST: Deposit credits
   async deposit(
     req: Request,

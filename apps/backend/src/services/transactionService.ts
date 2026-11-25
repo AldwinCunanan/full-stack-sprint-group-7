@@ -149,5 +149,34 @@ export const walletService = {
         where: { id }
       });
     });
+  },
+
+  // fetch wallet data that belongs to user
+  async fetchWallet(userId: number) {
+  const user = await prisma.user.findUnique({
+    where: { id: userId },
+    select: {
+      credits: true,
+      transactions: {
+        orderBy: {
+          date: "desc"
+        }
+      }
+    }
+  });
+
+  if (!user) {
+    throw new Error("User not found.");
   }
+
+  return {
+    credits: user.credits.toNumber(),
+    transactions: user.transactions.map((tx) => ({
+      ...tx,
+      amount: tx.amount.toNumber(),
+      date: tx.date.toLocaleDateString()
+    }))
+  };
+},
 };
+
