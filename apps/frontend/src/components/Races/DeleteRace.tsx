@@ -1,5 +1,5 @@
 import { useState } from "react"
-import { Race } from "../../types/races"
+import type { Race } from "../../../../../shared/types/races"
 import { raceFormService } from "../../services/raceFormServices"
 
 type deleteRaceProps = {
@@ -16,9 +16,11 @@ type deleteRaceProps = {
  */
 function DeleteRace({raceId, updateRaces}: deleteRaceProps){
     const [error, setError] = useState("")
+    const [isDeleting, setIsDeleting] = useState(false)
 
     const handleDelete = async () => {
         setError("")
+        setIsDeleting(true)
 
         try{
             await raceFormService.deleteRace(raceId)
@@ -27,6 +29,8 @@ function DeleteRace({raceId, updateRaces}: deleteRaceProps){
             if (error instanceof Error){
                 setError(error.message)
             }
+        } finally {
+            setIsDeleting(false)
         }
     };
 
@@ -36,8 +40,9 @@ function DeleteRace({raceId, updateRaces}: deleteRaceProps){
                 type="button"
                 className="delete-race-btn"
                 onClick={handleDelete}
+                disabled={isDeleting}
             >
-                Delete
+                {isDeleting ? "Deleting…" : "Delete"}
             </button>
 
             {error && <p role="alert"> {error} </p>}
