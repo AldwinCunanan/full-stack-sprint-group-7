@@ -19,9 +19,9 @@ export const racesController = {
     },
 
     async addRace(req: Request, res: Response) {
-        await raceFormService.addRace(req.body);
+        const race = await raceFormService.addRace(req.body);
 
-        res.status(201).json({ message: "Race created successfully." });
+        res.status(201).json({ message: "Race created successfully.", race });
     },
 
     async deleteRace(req: Request<{ id: string }>, res: Response) {
@@ -37,6 +37,6 @@ export const racesController = {
             return;
         }
 
-        res.status(204).json({ message: "Race deleted successfully."});
+        res.status(204).end();
     }
 }
