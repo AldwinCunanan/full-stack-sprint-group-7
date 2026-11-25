@@ -46,10 +46,12 @@ export const racesRepo = {
     /**
     * Removes a race by id.
     * @param raceId The id of the race to remove.
+    * @returns Whether a race was deleted.
     */
-    async deleteRace(raceId: string): Promise<void> {
-        if (!raceId) return;
+    async deleteRace(raceId: string): Promise<boolean> {
+        if (!raceId) return false;
 
         await prisma.race.deleteMany({ where: { id: raceId } });
+        return true;
     },
 }
