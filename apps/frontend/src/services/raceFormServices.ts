@@ -66,12 +66,6 @@ export const raceFormService = {
             throw new Error("A race ID is required!");
         }
 
-        const race = await racesRepo.getRace(raceId);
-
-        if(!race){
-            throw new Error("Race not found!");
-        }
-
         await racesRepo.deleteRace(raceId);
     },
 }
