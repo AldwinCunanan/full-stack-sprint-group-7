@@ -13,7 +13,7 @@
  * - removeTransaction(id): function to delete a logged transaction record.
  */
 import { useState, useEffect } from "react";
-import { Transaction } from "../../../../shared/types/userProfile"; 
+import type { Transaction } from "../../../../shared/types/userProfile";
 import { walletService } from "../services/walletService";
 
 export function useWallet() {
@@ -25,9 +25,13 @@ export function useWallet() {
   const loadWalletData = async () => {
     try {
       setLoading(true);
-      const data = await walletService.fetchTransactions();
-      setTransactions(data);
-      setCredits(walletService.calculateBalance(data));
+      setErrorMsg("");
+
+      const data = await walletService.fetchWallet();
+
+      setTransactions(data.transactions);
+      setCredits(data.credits);
+
     } catch (err) {
       setErrorMsg("Failed to load wallet data.");
     } finally {
@@ -41,31 +45,50 @@ export function useWallet() {
 
   const deposit = async (amountStr: string): Promise<boolean> => {
     const error = walletService.validateAmount(amountStr, credits, false);
+
     if (error) {
       setErrorMsg(error);
       return false;
     }
-    setErrorMsg("");
-    await walletService.addTransaction("Deposit", Number(amountStr));
-    await loadWalletData();
-    return true;
+
+    try {
+      setErrorMsg("");
+      await walletService.addTransaction("Deposit", Number(amountStr));
+      await loadWalletData();
+      return true;
+    } catch (err) {
+      setErrorMsg("Failed to process deposit.");
+      return false;
+    }
   };
 
   const withdraw = async (amountStr: string): Promise<boolean> => {
     const error = walletService.validateAmount(amountStr, credits, true);
+
     if (error) {
       setErrorMsg(error);
       return false;
     }
-    setErrorMsg("");
-    await walletService.addTransaction("Withdrawal", Number(amountStr));
-    await loadWalletData();
-    return true;
+
+    try {
+      setErrorMsg("");
+      await walletService.addTransaction("Withdrawal", Number(amountStr));
+      await loadWalletData();
+      return true;
+    } catch (err) {
+      setErrorMsg("Failed to process withdrawal.");
+      return false;
+    }
   };
 
   const removeTransaction = async (id: number): Promise<void> => {
-    await walletService.deleteTransaction(id);
-    await loadWalletData();
+    try {
+      setErrorMsg("");
+      await walletService.deleteTransaction(id);
+      await loadWalletData();
+    } catch (err) {
+      setErrorMsg("Failed to delete transaction.");
+    }
   };
 
   return {

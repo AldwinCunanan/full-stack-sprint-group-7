@@ -6,11 +6,14 @@
  * Currently interacts with pre-loaded mock test data, keeping data storage details 
  * completely decoupled from business logic and React state.
  */
+
+
 import { transactionRepo } from "../repositories/transactionRepo";
-import { Transaction } from "../../../../shared/types/userProfile";
+import type { Transaction, Wallet } from "../../../../shared/types/userProfile";
 
 export const walletService = {
 
+  // Validate deposit and withdrawal amounts
   validateAmount(
     value: string,
     currentBalance: number,
@@ -29,18 +32,17 @@ export const walletService = {
     return "";
   },
 
-  calculateBalance(transactions: Transaction[]): number {
-    return transactions.reduce((acc, tx) => {
-      return tx.type === "Deposit"
-        ? acc + tx.amount
-        : acc - tx.amount;
-    }, 0);
+  // Fetch wallet balance and transaction history from backend
+  async fetchWallet(): Promise<Wallet> {
+    return await transactionRepo.getWallet();
   },
 
+  // Fetch transaction history separately if needed
   async fetchTransactions(): Promise<Transaction[]> {
     return await transactionRepo.getAll();
   },
 
+  // Add deposit or withdrawal through backend
   async addTransaction(
     type: "Deposit" | "Withdrawal",
     amount: number
@@ -51,6 +53,7 @@ export const walletService = {
     });
   },
 
+  // Delete transaction through backend
   async deleteTransaction(id: number): Promise<void> {
     await transactionRepo.delete(id);
   }

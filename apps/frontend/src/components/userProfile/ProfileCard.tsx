@@ -3,7 +3,7 @@
  * Presentational component (View layer) that receives profile information and live credit state
  * via props to render user details. Keeps UI logic purely declarative.
  */
-import { ProfileData } from "../../types/userProfile";
+import { ProfileData } from "../../../../../shared/types/userProfile";
 
 interface ProfileCardProps {
   profile: ProfileData;
