@@ -199,7 +199,7 @@ export function RacerList({ racers }: { racers: Racer[] }) {
                 {racers.map((racer) => (
                     <div key={racer.id} className="racer_card">
                         <img
-                            src={racer.image ?? ""}
+                            src={`http://localhost:3000${racer.image ?? ""}`}
                             alt={racer.name}
                             className="racer_image"
                         />
