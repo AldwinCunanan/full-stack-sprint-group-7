@@ -1,13 +1,11 @@
-
-import { prisma } from "../db/prisma.js";
-import { transactionRepo } from "../repositories/transactionRepository.js";
-import { TransactionType } from "../generated/prisma/client.js";
+import { prisma } from "../db/prisma.ts";
+import { transactionRepo } from "../repositories/transactionRepository.ts";
+import { TransactionType } from "../generated/prisma/client.ts";
 
 export const walletService = {
 
-  /**
-   * Validate transaction amount.
-   */
+  //Validate transaction amount.
+   
   validateAmount(
     value: string,
     currentBalance: number,
@@ -26,9 +24,9 @@ export const walletService = {
     return "";
   },
 
-  /**
-   * Calculate balance from transaction history.
-   */
+  
+   // Calculate balance from transaction history.
+   
   calculateBalance(
     transactions: { type: TransactionType; amount: { toNumber(): number } }[]
   ): number {
@@ -41,17 +39,16 @@ export const walletService = {
     }, 0);
   },
 
-  /**
-   * Fetch all transactions belonging to a user.
-   */
+  
+   // Fetch all transactions belonging to a user.
+   
   async fetchTransactions(userId: number) {
     return await transactionRepo.getAll(userId);
   },
 
-  /**
-   * Add a deposit or withdrawal.
-   * Updates the user's credits and transaction history atomically.
-   */
+   // Add a deposit or withdrawal.
+   // Updates the user's credits and transaction history atomically.
+   
   async addTransaction(
     userId: number,
     type: TransactionType,
@@ -113,9 +110,9 @@ export const walletService = {
     };
   },
 
-  /**
-   * Delete a transaction belonging to a user.
-   */
+  
+   // Delete a transaction belonging to a user.
+
   async deleteTransaction(
     userId: number,
     id: number

@@ -1,6 +1,6 @@
 
-import { Request, Response, NextFunction } from "express";
-import { walletService } from "../services/transactionService.js";
+import type { Request, Response, NextFunction } from "express";
+import { walletService } from "../services/transactionService.ts";
 
 export const walletController = {
 

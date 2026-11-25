@@ -7,7 +7,7 @@ import type {
   NextFunction
 } from "express";
 
-// import { userRoutes } from "./routes/userRoutes";
+import walletRoutes from "./src/routes/walletRoutes.ts"
 // import { racesRoutes } from "./routes/racesRoutes";
 // import { racerRoutes } from "./routes/racerRoutes";
  
@@ -27,7 +27,7 @@ app.use((req, _res, next) => {
   next();
 });
 
-// app.use("/api/user", userRoutes);
+app.use("/api/wallet", walletRoutes)
 // app.use("/api/races", racesRoutes);
 // app.use("/api/racers", racerRoutes);
  

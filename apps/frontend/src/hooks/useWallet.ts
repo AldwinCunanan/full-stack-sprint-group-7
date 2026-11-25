@@ -13,7 +13,7 @@
  * - removeTransaction(id): function to delete a logged transaction record.
  */
 import { useState, useEffect } from "react";
-import { Transaction } from "../types/userProfile"; 
+import { Transaction } from "../../../../shared/types/userProfile"; 
 import { walletService } from "../services/walletService";
 
 export function useWallet() {
