@@ -1,5 +1,5 @@
-import { Racer } from "../types/racer_type";
-import { Teamsheet } from "../types/teamsheet_type";
+import { Racer } from "../../../../shared/types/racer_type";
+import { Teamsheet } from "../../../../shared/types/teamsheet_type";
 
 // What does this repository do?
 // - it handles the main method createTeamsheet()

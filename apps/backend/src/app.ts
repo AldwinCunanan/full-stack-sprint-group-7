@@ -7,6 +7,8 @@ import type {
   Response,
   NextFunction
 } from "express";
+import { racerRoutes } from "./routes/racerRoutes.ts";
+import { teamsheetsRoutes } from "./routes/teamsheetRoutes.ts";
 
 
 import walletRoutes from "./src/routes/walletRoutes.ts"
@@ -32,7 +34,8 @@ app.use((req, _res, next) => {
 
 app.use("/api/races", racesRoutes);
 app.use("/api/wallet", walletRoutes)
-
+app.use("/api/racers", racerRoutes);
+app.use("/api/teamsheets", teamsheetsRoutes);
  
 // Central error handler
 app.use((

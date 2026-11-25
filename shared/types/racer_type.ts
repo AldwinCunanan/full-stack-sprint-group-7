@@ -1,4 +1,5 @@
 export type Racer = {
+    id: number;
     name: string;
     team: string;
     country: string;
@@ -7,5 +8,5 @@ export type Racer = {
     season_points: number;
     grand_prix_races: number;
     grand_prix_wins: number;
-    image?: string;
+    image?: string | null;
 };
