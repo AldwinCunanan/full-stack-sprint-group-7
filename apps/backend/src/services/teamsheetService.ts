@@ -3,6 +3,9 @@ import type { Racer } from "../../../../shared/types/racer_type";
 import { teamsheetRepo } from "../repositories/teamsheetRepo.ts";
 import { racerRepo } from "../repositories/racersRepo.ts";
 
+// Use the same seeded development user as the wallet.
+const DEVELOPMENT_USER_ID = 1;
+
 type TeamsheetResult =
     | { success: false; message: string }
     | { success: true; teamsheets: Teamsheet[] };
@@ -64,7 +67,8 @@ export const teamsheetService = {
         await teamsheetRepo.createTeamsheet(
             teamName.trim(),
             bettingTotal,
-            racerIds
+            racerIds,
+            DEVELOPMENT_USER_ID,
         );
 
         return {

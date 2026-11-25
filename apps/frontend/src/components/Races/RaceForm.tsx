@@ -40,7 +40,7 @@ function RaceForm({updateRaces}: raceFormProps){
             trackImg: trackImg.value,
             date: new Date(dateOfRace.value),
             trackLength: lengthOfTrack.value,
-            drivers: ["Max"],
+            drivers: [],
         });
 
         updateRaces(prev => [...prev, race]);
