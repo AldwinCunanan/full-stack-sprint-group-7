@@ -1,16 +1,15 @@
-import {TeamsheetList} from "../Racers/Racers";
-import { Teamsheet } from "../../../types/teamsheet_type";
+
+import { TeamsheetList } from "../Racers/Racers";
+import type { Teamsheet } from "../../../../../../shared/types/teamsheet_type";
 
 type BettingProps = {
     teamsheets: Teamsheet[];
-    deleteTeamsheet: (id: string) => void;
+    deleteTeamsheet: (id: string) => Promise<void>;
 };
 
-function Betting({teamsheets,deleteTeamsheet}: BettingProps) {
+function Betting({ teamsheets, deleteTeamsheet }: BettingProps) {
     return (
         <main>
-            {/* When we want to add new stuff */}
-
             <TeamsheetList
                 teamsheets={teamsheets}
                 deleteTeamsheet={deleteTeamsheet}
@@ -20,4 +19,3 @@ function Betting({teamsheets,deleteTeamsheet}: BettingProps) {
 }
 
 export default Betting;
-
