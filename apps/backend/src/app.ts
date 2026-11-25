@@ -1,7 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
-import { racesRoutes } from "./src/routes/racesRoutes.ts";
+import { racesRoutes } from "./routes/racesRoutes.ts";
 import type {
   Request,
   Response,
@@ -11,7 +11,7 @@ import { racerRoutes } from "./routes/racerRoutes.ts";
 import { teamsheetsRoutes } from "./routes/teamsheetRoutes.ts";
 
 
-import walletRoutes from "./src/routes/walletRoutes.ts"
+import walletRoutes from "./routes/walletRoutes.ts"
 // import { racerRoutes } from "./routes/racerRoutes";
  
 const app = express();

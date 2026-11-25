@@ -20,7 +20,7 @@ model Race {
   trackLength String
   trackImg    String
   date        DateTime @db.Date
-  drivers     String[]
+  drivers     Racer[]
 }
 
 enum TransactionType {
@@ -57,9 +57,23 @@ model Teamsheet {
   id           String  @id @default(cuid())
   teamName     String
   bettingTotal Decimal 
-
   userId       Int
   user         User    @relation(fields: [userId], references: [id], onDelete: Cascade)
-
+  racers       Racer[]
   @@index([userId])
+}
+
+model Racer {
+  id                 Int         @id @default(autoincrement())
+  name               String      @unique
+  team               String
+  country            String
+  number             Int
+  season_position    String
+  season_points      Int
+  grand_prix_races   Int
+  grand_prix_wins    Int
+  image              String?
+  teamsheets         Teamsheet[]
+  races              Race[]
 }

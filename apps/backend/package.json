@@ -7,8 +7,7 @@
     "dev": "node --watch src/server.ts",
     "build": "tsc -b && vite build",
     "lint": "eslint .",
-    "preview": "vite preview",
-    "db:seed": "tsx prisma/racesSeed.ts && tsx src/db/racerseed.ts"
+    "preview": "vite preview"
   },
   "dependencies": {
     "@prisma/adapter-pg": "^7.10.1",

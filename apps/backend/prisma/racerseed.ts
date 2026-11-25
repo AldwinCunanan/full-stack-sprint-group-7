@@ -1,5 +1,5 @@
-import { prisma } from "./prisma";
-import { racers } from "../data/racers";
+import { prisma } from "../src/db/prisma";
+import { racers } from "../src/data/racers";
 
 async function main() {
     for (const racer of racers) {
