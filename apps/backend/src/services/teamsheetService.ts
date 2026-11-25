@@ -1,7 +1,7 @@
 import type { Teamsheet } from "../../../../shared/types/teamsheet_type";
 import type { Racer } from "../../../../shared/types/racer_type";
-import { teamsheetRepo } from "../repositories/teamsheetRepo";
-import { racerRepo } from "../repositories/racersRepo";
+import { teamsheetRepo } from "../repositories/teamsheetRepo.ts";
+import { racerRepo } from "../repositories/racersRepo.ts";
 
 type TeamsheetResult =
     | { success: false; message: string }

@@ -1,4 +1,4 @@
-import { prisma } from "../db/prisma";
+import { prisma } from "../db/prisma.ts";
 import type { Teamsheet } from "../../../../shared/types/teamsheet_type";
 
 export const teamsheetRepo = {

@@ -6,8 +6,8 @@ import type {
   Response,
   NextFunction
 } from "express";
-import { racerRoutes } from "./routes/racerRoutes";
-import { teamsheetsRoutes } from "./routes/teamsheetRoutes";
+import { racerRoutes } from "./routes/racerRoutes.ts";
+import { teamsheetsRoutes } from "./routes/teamsheetRoutes.ts";
 
 // import { userRoutes } from "./routes/userRoutes";
 // import { racesRoutes } from "./routes/racesRoutes";

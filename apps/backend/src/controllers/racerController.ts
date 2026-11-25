@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { racerService } from "../services/racerService";
+import { racerService } from "../services/racerService.ts";
 
 export const racerController = {
   async getAll(_req: Request, res: Response) {

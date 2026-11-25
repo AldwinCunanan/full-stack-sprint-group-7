@@ -1,4 +1,4 @@
-import { racerRepo } from "../repositories/racersRepo";
+import { racerRepo } from "../repositories/racersRepo.ts";
 import type { Racer } from "../../../../shared/types/racer_type";
 
 export const racerService = {

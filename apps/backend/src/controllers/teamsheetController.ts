@@ -1,5 +1,5 @@
 import type { Request, Response } from "express";
-import { teamsheetService } from "../services/teamsheetService";
+import { teamsheetService } from "../services/teamsheetService.ts";
 
 export const teamsheetController = {
 
