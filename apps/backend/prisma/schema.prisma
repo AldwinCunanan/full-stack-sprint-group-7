@@ -11,3 +11,13 @@ generator client {
 datasource db {
   provider = "postgresql"
 }
+
+model Race {
+  id          String   @id @default(uuid())
+  name        String
+  location    String
+  trackLength String
+  trackImg    String
+  date        DateTime @db.Date
+  drivers     String[]
+}

@@ -1,5 +1,5 @@
 import "./raceForm.css"
-import { Race } from "../../types/races";
+import type { Race } from "../../../../../shared/types/races";
 import { useFormInput } from "../../hooks/useFormInput";
 import useFormSubmit from "../../hooks/useFormSubmission";
 import { raceFormService } from "../../services/raceFormServices";

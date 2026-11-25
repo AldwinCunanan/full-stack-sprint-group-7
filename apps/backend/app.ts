@@ -1,6 +1,7 @@
 import "dotenv/config";
 import express from "express";
 import cors from "cors";
+import { racesRoutes } from "./src/routes/racesRoutes.ts";
 import type {
   Request,
   Response,
@@ -8,7 +9,6 @@ import type {
 } from "express";
 
 // import { userRoutes } from "./routes/userRoutes";
-// import { racesRoutes } from "./routes/racesRoutes";
 // import { racerRoutes } from "./routes/racerRoutes";
  
 const app = express();
@@ -21,6 +21,8 @@ if (!frontendUrl) {
  
 app.use(cors({ origin: frontendUrl }));
 app.use(express.json());
+
+app.use("/api/races", racesRoutes);
  
 app.use((req, _res, next) => {
   console.log(req.method, req.url);
@@ -28,7 +30,7 @@ app.use((req, _res, next) => {
 });
 
 // app.use("/api/user", userRoutes);
-// app.use("/api/races", racesRoutes);
+app.use("/api/races", racesRoutes);
 // app.use("/api/racers", racerRoutes);
  
 // Central error handler

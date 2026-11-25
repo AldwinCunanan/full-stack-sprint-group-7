@@ -1,5 +1,5 @@
 import { racesRepo } from "../repositories/racesRepo";
-import type { Race, RaceInput } from "../types/races";
+import type { Race, RaceInput } from "../../../../shared/types/races";
 
 export const raceFormService = {
     async getRaces(): Promise<Race[]> {
@@ -64,12 +64,6 @@ export const raceFormService = {
     async deleteRace(raceId:string): Promise<void>{
         if(!raceId.trim()){
             throw new Error("A race ID is required!");
-        }
-
-        const race = await racesRepo.getRace(raceId);
-
-        if(!race){
-            throw new Error("Race not found!");
         }
 
         await racesRepo.deleteRace(raceId);
