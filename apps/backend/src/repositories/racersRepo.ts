@@ -1,39 +1,10 @@
-import type { Racer } from "../../../../shared/types/racer";
+import type { Racer } from "../../../../shared/types/racer_type";
 import { prisma } from "../db/prisma";
-import type { Department } from "../../../../shared/types/department";
 
 export const racerRepo = {
-    
-    async getAll(): Promise<Department[]> {
-    return prisma.department.findMany({
-        orderBy: { id: "asc" },
-        include: { racers: true }
+    async getAll(): Promise<Racer[]> {
+        return prisma.racer.findMany({
+            orderBy: { id: "asc"}
         });
-    },
-
-    async createRacer(
-        departmentName: string,
-        racer: Omit<Racer, "id">
-    ): Promise<Racer> {
-        return prisma.racer.create({
-            data: {
-                firstName: racer.firstName,
-                lastName: racer.lastName,
-                department: {
-                    connect: { name: departmentName}
-                }
-            }
-        });
-    },
-
-    async getRacers(
-        departmentName: string
-    ): Promise<Racer[]> {
-        const department = await prisma.department.findUnique({
-            where: { name: departmentName },
-            include: { racers: true }
-        });
-
-        return department?.racers ?? [];
     }
 };
