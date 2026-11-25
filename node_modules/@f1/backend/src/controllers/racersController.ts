@@ -9,7 +9,6 @@ export const racerController = {
   },
 
   async add(req: Request, res: Response) {
-    // Body has already passed validation middleware
     const racer = await racerService.add(
       req.body as CreateRacerInput
     );

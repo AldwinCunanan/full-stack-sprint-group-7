@@ -4,17 +4,16 @@ import { Request, Response, NextFunction } from "express";
 export const postSchemas = {
     create: {
         body: Joi.object({
-            departmentName: Joi.string().required().messages({
-                "any.required": "Department name is required",
-                "string.empty": "Department name cannot be empty",
+            teamName: Joi.string().required().messages({
+                "any.required": "Team name is required",
+                "string.empty": "Team name cannot be empty",
             }),
-            firstName: Joi.string().required().messages({
-                "any.required": "First name is required",
-                "string.empty": "First name cannot be empty",
+            selectedRacer: Joi.string().required().messages({
+                "any.required": "You must select at least one racer",
             }),
-            lastName: Joi.string().required().messages({
-                "any.required": "Last name is required",
-                "string.empty": "Last name cannot be empty",
+            bettingTotal: Joi.string().required().messages({
+                "any.required": "Betting total is required",
+                "string.empty": "Betting total cannot be empty",
             }),
         }).unknown(false),
     },
