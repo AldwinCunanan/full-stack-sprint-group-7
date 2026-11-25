@@ -1,7 +1,7 @@
 import { readFileSync } from "node:fs";
 import { prisma } from "../src/db/prisma.js"; 
-import { TransactionType } from "../src/generated/prisma/enums";
-import type { ProfileData, Transaction } from "../../../shared/types/userProfile";
+import { TransactionType } from "../src/generated/prisma/enums.js";
+import type { ProfileData, Transaction } from "../../../shared/types/userProfile.js";
 
 const users = JSON.parse(
   readFileSync(new URL("./data/user.json", import.meta.url), "utf8")
