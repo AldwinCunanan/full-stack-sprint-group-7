@@ -1,60 +1,53 @@
-import { Race, RaceInput } from "../../../../shared/types/races"
-import { races } from "../../../backend/src/data/RacesData"
-import { Guid } from "guid-typescript";
+import type { Race, RaceInput } from "../../../../shared/types/races";
 
+const BASE_URL = import.meta.env.VITE_API_BASE_URL;
+const ENDPOINT = `${BASE_URL}/api/races`;
 
-//This is mock data. Replace with API/DB calls once the real backend exists.
-let racesData: Race[] = races.map((race) => ({
-    ...race,
-}));
+type RaceResponse = Omit<Race, "date"> & { date: string };
+
+async function readJson<T>(response: Response): Promise<T> {
+    if (!response.ok) {
+        throw new Error(`API error: ${response.status}`);
+    }
+
+    return (await response.json()) as T;
+}
+
+function toRace(race: RaceResponse): Race {
+    return { ...race, date: new Date(race.date) };
+}
 
 export const racesRepo = {
-    /**
-    * Retrieves all races.
-    * @returns Copies of every race in the races data, so callers can't mutate
-    * the stored objects directly.
-    */
     async getAllRaces(): Promise<Race[]> {
-        return racesData.map(race => ({
-            ...race,
-        }));
+        const response = await fetch(ENDPOINT);
+        const races = await readJson<RaceResponse[]>(response);
+        return races.map(toRace);
     },
 
-    /**
-    * Retrieves a single race by id.
-    * @param selectedId The id of the race to find.
-    * @returns The matching race, or undefined if none exists.
-    */
-    async getRace(selectedId:string): Promise<Race | undefined> {
-        return racesData.find(race => race.id === selectedId);
+    async getRace(selectedId: string): Promise<Race | undefined> {
+        const response = await fetch(`${ENDPOINT}/${encodeURIComponent(selectedId)}`);
+        if (response.status === 404) return undefined;
+
+        const race = await readJson<RaceResponse>(response);
+        return toRace(race);
     },
 
-    /**
-    * Creates a new race and adds it to the raceData.
-    * @param raceInput The race details.
-    * @returns The newly created race, including its generated id.
-    */
-    async createRace(raceInput:RaceInput): Promise<Race> {
-        const race: Race = {
-            id: Guid.create().toString(),
-            name: raceInput.name,
-            location: raceInput.location,
-            trackLength: raceInput.trackLength,
-            trackImg: raceInput.trackImg,
-            date: raceInput.date,
-            drivers: raceInput.drivers,
-        };
-
-        racesData = [...racesData, race];
-
-        return race;
+    async createRace(raceInput: RaceInput): Promise<Race> {
+        const response = await fetch(ENDPOINT, {
+            method: "POST",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(raceInput),
+        });
+        const { race } = await readJson<{ race: RaceResponse }>(response);
+        return toRace(race);
     },
 
-    /**
-    * Removes a race by id.
-    * @param raceId The id of the race to remove.
-    */
-    async deleteRace(raceId:string): Promise<void> {
-        racesData = racesData.filter(race => race.id !== raceId)
+    async deleteRace(raceId: string): Promise<void> {
+        const response = await fetch(`${ENDPOINT}/${encodeURIComponent(raceId)}`, {
+            method: "DELETE",
+        });
+        if (!response.ok) {
+            throw new Error(`API error: ${response.status}`);
+        }
     },
-}
+};
