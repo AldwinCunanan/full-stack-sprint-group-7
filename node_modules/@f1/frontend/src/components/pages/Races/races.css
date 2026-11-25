@@ -1,0 +1,72 @@
+.race-main {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-content: center;
+}
+
+.races-header h2{
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 2rem;
+    color: #ffffff;
+}
+
+.race-box-header {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.race-box {
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    background-color: #2C3E50;
+    border-radius: 15px;
+    box-shadow: 0 0 15px rgba(0, 150, 255, 0.4);
+    border: 1px solid #ffffff;
+    padding: 8px;
+}
+
+.race-date {
+    font-size: 1.4rem;
+    font-weight: bold;
+    background-color: #ff3b3b;
+    border: 1px solid #ffffff;
+    border-radius: 10px;
+    text-align: left;
+    padding: 2px 8px;
+}
+
+.race-name {
+    font-size: 2rem;
+    font-weight: 700;
+    text-align: left;
+    margin-top: 10px;
+    margin-bottom: 8px;
+    padding: 0;
+    overflow-wrap: break-word;
+}
+
+.race-box-location {
+    font-size: 1.3rem;
+    font-weight: bold;
+    text-align: left;
+    margin-top: 2px;
+    margin-bottom: 2px;
+    padding: 0;
+    line-height: 1;
+}
+
+.race-divider {
+    width: 100%;
+    height: 1px;
+    background-color: #ffffff;
+    opacity: 0.4;
+    margin: 4px 0;
+}

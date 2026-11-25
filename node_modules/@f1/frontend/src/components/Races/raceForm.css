@@ -1,0 +1,40 @@
+
+.race-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+    background: #111;
+    margin-bottom: 1.4rem;
+    border-left: 4px solid #e10600;
+    padding-left: 1rem;
+    background-image: url('/racesImages/max_races_form.png');
+    background-size: cover;
+    
+}
+
+.field-race-name, .field-race-location, .field-race-length, .field-race-date {
+    max-width: 400px;
+    width: 100%;
+    padding: 0.75rem;
+    border-radius: 6px;
+    border: 1px solid #333;
+    background: #1a1a1a;
+    color: #fff;
+    box-sizing: border-box;
+}
+
+.race-submit-btn {
+    background: #e10600;
+    border: none;
+    padding: 0.75rem;
+    border-radius: 6px;
+    font-weight: 600;
+    cursor: pointer;
+    color: #fff;
+}
+
+.errors {
+    color: #e10600;
+    font-weight: 600;
+}
