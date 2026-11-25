@@ -6,7 +6,7 @@
  * Currently interacts with pre-loaded mock test data, keeping data storage details 
  * completely decoupled from business logic and React state.
  */
-import { Transaction } from "../types/userProfile"; 
+import { Transaction } from "../../../../shared/types/userProfile"; 
 import { sampleTransactions } from "../data/sampleTransaction";
 
 let transactionsStore: Transaction[] = [...sampleTransactions];
